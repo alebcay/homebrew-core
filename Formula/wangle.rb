@@ -205,7 +205,6 @@ class Wangle < Formula
                     "-L#{Formula["wangle"].lib}",
                     "EchoClient.cpp",
                     "-lgflags", "-lglog", "-lcrypto", "-lssl", "-lfolly", "-lwangle",
-                    "-o",
-                    "EchoClient"
+                    "-o", "EchoClient"
   end
 end
