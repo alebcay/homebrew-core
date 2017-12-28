@@ -11,9 +11,10 @@ class Wangle < Formula
   depends_on "openssl"
 
   def install
-    Dir.chdir("wangle")
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    cd "wangle" do
+      system "cmake", ".", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
