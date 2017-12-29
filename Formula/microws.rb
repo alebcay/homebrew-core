@@ -34,7 +34,7 @@ class Microws < Formula
     system ENV.cxx, "--std=c++14",
                     "-I#{Formula["openssl"].opt_include}", "-L#{Formula["openssl"].opt_lib}", "-lssl",
                     "-I#{include}", "-L#{lib}", "-luws",
-                    "-I#{Formula["libuv"].include}", "-L#{Formula["libuv"].lib}", "-luv",
+                    "-I#{Formula["libuv"].opt_include}", "-L#{Formula["libuv"].opt_lib}", "-luv",
                     "-lz", "test.cpp", "-o", "test"
     system testpath/"test"
   end
