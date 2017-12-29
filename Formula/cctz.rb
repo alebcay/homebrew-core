@@ -4,12 +4,10 @@ class Cctz < Formula
   url "https://github.com/google/cctz/archive/v2.1.tar.gz"
   sha256 "a86b9b2d339f5638a03a4bbcc1d8c632d2c429aecc44f5c548839c239c3b6e38"
 
-  option "with-shared", "Build shared instead of static library"
-
   def install
     system "make", "install_hdrs", "PREFIX=#{prefix}"
-    libtype = build.with?("shared") ? "shared_lib" : "lib"
-    system "make", "install_#{libtype}", "PREFIX=#{prefix}"
+    system "make", "install_lib", "PREFIX=#{prefix}"
+    system "make", "install_shared_lib", "PREFIX=#{prefix}"
   end
 
   test do
