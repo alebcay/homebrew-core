@@ -8,7 +8,7 @@ class Microws < Formula
   depends_on "openssl"
 
   def install
-  	system "make"
+    system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
