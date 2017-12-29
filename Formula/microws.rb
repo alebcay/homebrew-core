@@ -36,6 +36,6 @@ class Microws < Formula
                     "-I#{include}", "-L#{lib}", "-luws",
                     "-I#{Formula["libuv"].opt_include}", "-L#{Formula["libuv"].opt_lib}", "-luv",
                     "-lz", "test.cpp", "-o", "test"
-    system testpath/"test"
+    system "./test"
   end
 end
