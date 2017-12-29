@@ -32,8 +32,8 @@ class Microws < Formula
       }
     EOS
     system ENV.cxx, "--std=c++14",
-                    "-I#{Formula["openssl"].include}", "-L#{Formula["openssl"].lib}", "-lssl",
-                    "-I#{Formula["microws"].include}", "-L#{Formula["microws"].lib}", "-luws",
+                    "-I#{Formula["openssl"].opt_include}", "-L#{Formula["openssl"].opt_lib}", "-lssl",
+                    "-I#{include}", "-L#{lib}", "-luws",
                     "-I#{Formula["libuv"].include}", "-L#{Formula["libuv"].lib}", "-luv",
                     "-lz", "test.cpp", "-o", "test"
     system testpath/"test"
