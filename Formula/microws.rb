@@ -1,16 +1,15 @@
 class Microws < Formula
   desc "Tiny WebSockets"
   homepage "https://github.com/uNetworking/uWebSockets"
-  url "https://github.com/uNetworking/uWebSockets/archive/v0.14.4.tar.gz"
-  sha256 "9d7854fe3b8c43903957ccd9001e954e210e14a0545549515a9f020bf275c4fc"
+  url "https://github.com/uNetworking/uWebSockets/archive/v0.14.5.tar.gz"
+  sha256 "4e4a4bcde543baae57ca8f327304874d1bb1fb11b2c4f71618d2b3279003f2d5"
 
   depends_on "libuv"
   depends_on "openssl"
 
   def install
-    system "make", "Darwin"
-    (include/"uWS").install Dir["src/*.h"]
-    lib.install "libuWS.dylib"
+  	system "make"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
