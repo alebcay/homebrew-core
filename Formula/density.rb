@@ -1,6 +1,6 @@
 class Density < Formula
   desc "Superfast compression library"
-  homepage "https://groups.google.com/d/forum/centaurean-density"
+  homepage "https://github.com/centaurean/density"
   url "https://github.com/centaurean/density/archive/density-0.14.2.tar.gz"
   sha256 "0b130ea9da3ddaad78810a621a758b47c4135d91d5b5fd22d60bbaf04bc147da"
 
@@ -10,8 +10,8 @@ class Density < Formula
   end
 
   resource "spookyhash" do
-    url "https://github.com/centaurean/spookyhash.git",
-      :revision => "2c27b434d097198cab2272d4160b413a5f139049"
+    url "https://github.com/centaurean/spookyhash/archive/spookyhash-1.0.6.tar.gz"
+    sha256 "11215a240af513e673e2d5527cd571df0b4f543f36cce50165a6da41695144c6"
   end
 
   def install
@@ -19,12 +19,12 @@ class Density < Formula
     (buildpath/"benchmark/libs/spookyhash").install resource("spookyhash")
     system "make"
     include.install "src/density_api.h"
-    share.install "build/benchmark"
+    pkgshare.install "build/benchmark"
     lib.install "build/libdensity.a"
     lib.install "build/libdensity.dylib"
   end
 
   test do
-    system share/"benchmark", "-f"
+    system pkgshare/"benchmark", "-f"
   end
 end
