@@ -3,9 +3,8 @@ class Alot < Formula
 
   desc "Text mode MUA using notmuch mail"
   homepage "https://github.com/pazz/alot"
-  url "https://github.com/pazz/alot/archive/0.7.tar.gz"
-  sha256 "2d49a7d61241cfadc993a8456076605b2cfe264c51f5e3f18f337bad58f29a1c"
-  revision 1
+  url "https://github.com/pazz/alot/archive/0.8.1.tar.gz"
+  sha256 "823e2fae014c1036609068c6109042b676113a382eacbd04eb3dfa461ef53953"
   head "https://github.com/pazz/alot.git"
 
   bottle do
@@ -21,7 +20,7 @@ class Alot < Formula
   depends_on "gpgme"
   depends_on "libmagic"
   depends_on "notmuch"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "Automat" do
     url "https://files.pythonhosted.org/packages/de/05/b8e453085cf8a7f27bb1226596f4ccf5cc9e758377d60284f990bbdc592c/Automat-0.6.0.tar.gz"
