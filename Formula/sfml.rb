@@ -27,14 +27,6 @@ class Sfml < Formula
   # https://github.com/Homebrew/homebrew/issues/40301
 
   def install
-    # Install pkg-config files, adding the CMake flag below isn't enough, as
-    # the CMakeLists.txt file currently doesn't consider MacOS X.
-    # This was fixed upstream for the future 2.5.0 release on 2016-12-19 in:
-    # https://github.com/SFML/SFML/commit/5fe5e5d6d7792e37685a437551ffa8ed5161fcc1
-    inreplace "CMakeLists.txt",
-              "if(SFML_OS_LINUX OR SFML_OS_FREEBSD)",
-              "if(SFML_OS_LINUX OR SFML_OS_FREEBSD OR SFML_OS_MACOSX)"
-
     # Always remove the "extlibs" to avoid install_name_tool failure
     # (https://github.com/Homebrew/homebrew/pull/35279) but leave the
     # headers that were moved there in https://github.com/SFML/SFML/pull/795
