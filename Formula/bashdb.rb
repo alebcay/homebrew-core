@@ -1,9 +1,9 @@
 class Bashdb < Formula
   desc "Bash shell debugger"
   homepage "https://bashdb.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/bashdb/bashdb/4.4-0.94/bashdb-4.4-0.94.tar.bz2"
-  version "4.4-0.94"
-  sha256 "5931afc2f153aa595b4c59e53d303d845952ab6101227c34654a1b83686dc006"
+  url "https://downloads.sourceforge.net/project/bashdb/bashdb/4.4-1.0.1/bashdb-4.4-1.0.1.tar.bz2"
+  version "4.4-1.0.1"
+  sha256 "bf603b6ee1f60c10861dcb1fef73a10f924327b5ff05cf41e2290f3edc1e6284"
 
   bottle do
     cellar :any_skip_relocation
