@@ -22,6 +22,6 @@ class CashCli < Formula
   end
 
   test do
-    assert_match "Conversion of INR 100", shell_output("#{bin}/cash 100 INR USD GBP")
+    assert_match "Saved API key to", shell_output("#{bin}/cash --key foo")
   end
 end
