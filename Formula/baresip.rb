@@ -32,7 +32,6 @@ class Baresip < Formula
                               "USE_CONS=1",
                               "USE_COREAUDIO=1",
                               "USE_G711=1",
-                              "USE_G712=1",
                               "USE_OPENGL=1",
                               "USE_STDIO=1"
   end
