@@ -13,6 +13,7 @@ class Baresip < Formula
 
   depends_on "libre"
   depends_on "librem"
+  depends_on "sdl2"
 
   def install
     # baresip doesn't like the 10.11 SDK when on Yosemite
@@ -26,13 +27,17 @@ class Baresip < Formula
                               "LIBRE_MK=#{libre.opt_share}/re/re.mk",
                               "LIBRE_INC=#{libre.opt_include}/re",
                               "LIBRE_SO=#{libre.opt_lib}",
+                              "HAVE_GETOPT=1",
                               "MOD_AUTODETECT=",
                               "USE_AVCAPTURE=1",
+                              "USE_AVCODEC=1",
+                              "USE_CONS=1",
                               "USE_COREAUDIO=1",
                               "USE_G711=1",
+                              "USE_G712=1",
                               "USE_OPENGL=1",
-                              "USE_STDIO=1",
-                              "USE_UUID=1"
+                              "USE_SDL2=1",
+                              "USE_STDIO=1"
   end
 
   test do
