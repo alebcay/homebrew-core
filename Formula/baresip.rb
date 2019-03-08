@@ -20,6 +20,9 @@ class Baresip < Formula
       ENV.delete("SDKROOT")
       ENV.delete("HOMEBREW_SDKROOT") if MacOS::Xcode.without_clt?
     end
+    
+    # baresip similarly does not behave well on High Sierra
+    ENV.delete "SDKROOT" if MacOS.version == :high_sierra
 
     libre = Formula["libre"]
     system "make", "install", "PREFIX=#{prefix}",
@@ -33,7 +36,9 @@ class Baresip < Formula
                               "USE_COREAUDIO=1",
                               "USE_G711=1",
                               "USE_OPENGL=1",
-                              "USE_STDIO=1"
+                              "USE_OPENSSL=1",
+                              "USE_STDIO=1",
+                              "USE_TLS=1"
   end
 
   test do
