@@ -20,7 +20,6 @@ class Gmic < Formula
   depends_on "libtiff"
 
   def install
-    cp "resources/CMakeLists.txt", buildpath
     system "cmake", *std_cmake_args,
                     "-DENABLE_FFMPEG=OFF",
                     "-DENABLE_OPENCV=OFF",
