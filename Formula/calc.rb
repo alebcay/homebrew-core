@@ -1,9 +1,8 @@
 class Calc < Formula
   desc "Arbitrary precision calculator"
   homepage "http://www.isthe.com/chongo/tech/comp/calc/"
-  url "https://downloads.sourceforge.net/project/calc/calc/2.12.7.1/calc-2.12.7.1.tar.bz2"
-  sha256 "eb1dc5dd680019e30264109167e20539fe9ac869049d8b1639781a51d1dea84c"
-  revision 1
+  url "http://www.isthe.com/chongo/src/calc/calc-2.12.7.2.tar.bz2"
+  sha256 "57af44181ca3af7348c82ee628cfd221677a09fef11a29d2e5667726d5aafc90"
 
   bottle do
     sha256 "1b4e5456d4965f8b74c120590070f74896c1fca85c8aa30354ffe519c1755600" => :mojave
