@@ -3,6 +3,7 @@ class BerkeleyDb < Formula
   homepage "https://www.oracle.com/technology/products/berkeley-db/index.html"
   # Requires registration to download so we mirror it
   url "https://dl.bintray.com/homebrew/mirror/berkeley-db-18.1.32.tar.gz"
+  mirror "https://fossies.org/linux/misc/db-18.1.32.tar.gz"
   sha256 "fa1fe7de9ba91ad472c25d026f931802597c29f28ae951960685cde487c8d654"
 
   bottle do
