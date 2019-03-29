@@ -1,8 +1,8 @@
 class GnomeBuilder < Formula
   desc "IDE for GNOME"
   homepage "https://wiki.gnome.org/Apps/Builder"
-  url "https://download.gnome.org/sources/gnome-builder/3.30/gnome-builder-3.30.3.tar.xz"
-  sha256 "9998f3d41d9526fdbf274cae712fafe7b79d0b9d1dd5739c6c2141e5e5550686"
+  url "https://download.gnome.org/sources/gnome-builder/3.32/gnome-builder-3.32.0.tar.xz"
+  sha256 "e46270d86a52721e4329349e4badff1df63a98aeb2a2c4554969367ba1d68702"
 
   bottle do
     sha256 "eeb68ecf6f35a40767d940658e90943bc40368d71b53b23ff5775948ef2122ce" => :mojave
@@ -30,15 +30,9 @@ class GnomeBuilder < Formula
   depends_on "template-glib"
   depends_on "vte3"
 
-  # fix sandbox violation and remove unavailable linker option
-  patch :DATA
-
   def install
     ENV.cxx11
     ENV["DESTDIR"] = "/"
-
-    # prevent sandbox violation
-    pyver = Language::Python.major_minor_version "python3"
 
     args = %W[
       --prefix=#{prefix}
@@ -55,7 +49,6 @@ class GnomeBuilder < Formula
       -Dwith_qemu=false
       -Dwith_safe_path=#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin
       -Dwith_project_tree=false
-      -Dpython_libprefix=python#{pyver}
     ]
 
     mkdir "build" do
@@ -74,40 +67,3 @@ class GnomeBuilder < Formula
     assert_match version.to_s, shell_output("#{bin}/gnome-builder --version")
   end
 end
-
-__END__
-diff --git a/src/main.c b/src/main.c
-index 9897203..212859a 100644
---- a/src/main.c
-+++ b/src/main.c
-@@ -77,6 +77,9 @@ main (int   argc,
-   /* Always ignore SIGPIPE */
-   signal (SIGPIPE, SIG_IGN);
-
-+  /* macOS dbus hack */
-+  g_setenv("DBUS_SESSION_BUS_ADDRESS", "launchd:env=DBUS_LAUNCHD_SESSION_BUS_SOCKET", TRUE);
-+
-   /*
-    * We require a desktop session that provides a properly working
-    * DBus environment. Bail if for some reason that is not the case.
-diff --git a/src/plugins/meson.build b/src/plugins/meson.build
-index bd99831..8ba8819 100644
---- a/src/plugins/meson.build
-+++ b/src/plugins/meson.build
-@@ -7,7 +7,6 @@ gnome_builder_plugins_deps = [libpeas_dep, libide_plugin_dep, libide_dep]
- gnome_builder_plugins_link_with = []
- gnome_builder_plugins_link_deps = join_paths(meson.current_source_dir(), 'plugins.map')
- gnome_builder_plugins_link_args = [
--  '-Wl,--version-script,' + gnome_builder_plugins_link_deps,
- ]
-
- subdir('autotools')
-@@ -80,7 +79,6 @@ gnome_builder_plugins = shared_library(
-   gnome_builder_plugins_sources,
-
-    dependencies: gnome_builder_plugins_deps,
--   link_depends: 'plugins.map',
-          c_args: gnome_builder_plugins_args + release_args,
-       link_args: gnome_builder_plugins_link_args,
-       link_with: gnome_builder_plugins_link_with,
-
