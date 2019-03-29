@@ -2,8 +2,8 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   url "https://freeswitch.org/stash/scm/fs/freeswitch.git",
-      :tag      => "v1.6.20",
-      :revision => "987c9b9a2a2e389becf4f390feb9eb14c77e2371"
+      :tag      => "v1.8.5",
+      :revision => "31281a0bf156888a0daab04015eea5e44702ce0d"
   head "https://freeswitch.org/stash/scm/fs/freeswitch.git"
 
   bottle do
@@ -20,11 +20,15 @@ class Freeswitch < Formula
   depends_on "pkg-config" => :build
   depends_on "yasm" => :build
   depends_on "jpeg"
+  depends_on "libks"
   depends_on "libsndfile"
+  depends_on "libtiff"
   depends_on "lua"
   depends_on "openssl"
   depends_on "opus"
+  depends_on "ossp-uuid"
   depends_on "pcre"
+  depends_on "signalwire-client-c"
   depends_on "speex"
   depends_on "speexdsp"
   depends_on "sqlite"
@@ -94,10 +98,6 @@ class Freeswitch < Formula
                                        "#applications/mod_enum"
 
     system "./bootstrap.sh", "-j"
-
-    # tiff will fail to find OpenGL unless told not to use X
-    inreplace "libs/tiff-4.0.2/configure.gnu", "--with-pic", "--with-pic --without-x"
-
     system "./configure", "--disable-dependency-tracking",
                           "--enable-shared",
                           "--enable-static",
