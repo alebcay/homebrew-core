@@ -1,8 +1,8 @@
 class Gpsd < Formula
   desc "Global Positioning System (GPS) daemon"
   homepage "http://catb.org/gpsd/"
-  url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.17.tar.gz"
-  sha256 "68e0dbecfb5831997f8b3d6ba48aed812eb465d8c0089420ab68f9ce4d85e77a"
+  url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.18.1.tar.gz"
+  sha256 "5cb1e6d880ec9a52c62492dd0e3d77451b7c7ad625895bd652f6354215aec23e"
 
   bottle do
     cellar :any
