@@ -9,15 +9,12 @@ class AtlassianCli < Formula
   depends_on :java => "1.8+"
 
   def install
-    system "/usr/bin/unzip", "881099539"
-    cd "#{name}-#{version}" do
-      Dir.glob("*.sh") do |f|
-        cmd = File.basename(f, ".sh")
-        inreplace cmd + ".sh", "`dirname $0`", share
-        bin.install cmd + ".sh" => cmd
-      end
-      share.install "lib", "license"
+    Dir.glob("*.sh") do |f|
+      cmd = File.basename(f, ".sh")
+      inreplace cmd + ".sh", "`dirname $0`", share
+      bin.install cmd + ".sh" => cmd
     end
+    share.install "lib", "license"
   end
 
   test do
