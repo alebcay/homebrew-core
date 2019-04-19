@@ -2,10 +2,10 @@ class JsonSpirit < Formula
   desc "C++ JSON parser/generator"
   homepage "https://www.codeproject.com/Articles/20027/JSON-Spirit-A-C-JSON-Parser-Generator-Implemented"
   url "https://github.com/png85/json_spirit/archive/json_spirit-4.0.8.tar.gz"
-  sha256 "43829f55755f725c06dd75d626d9e57d0ce68c2f0d5112fe9a01562c0501e94c"
   # Current release is misnamed on GitHub, previous versioning scheme and homepage
   # dictate the release as "4.08".
   version "4.08"
+  sha256 "43829f55755f725c06dd75d626d9e57d0ce68c2f0d5112fe9a01562c0501e94c"
 
   bottle do
     cellar :any
