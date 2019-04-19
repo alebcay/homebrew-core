@@ -1,8 +1,8 @@
 class Ipmiutil < Formula
   desc "IPMI server management utility"
   homepage "https://ipmiutil.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-2.9.5.tar.gz"
-  sha256 "eb00f0582ee75e1f8d371e398d546ddd7639595b9a0a1f27a84cc6ecb038dbe6"
+  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.1.3.tar.gz"
+  sha256 "b80303b6f05cbe48e728dd925fef201e9604a90cd3fc9c8af113367e8d6dbe57"
 
   bottle do
     cellar :any
