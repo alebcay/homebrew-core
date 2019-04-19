@@ -1,8 +1,8 @@
 class InteractiveRebaseTool < Formula
   desc "Ncurses sequence editor for git interactive rebase"
   homepage "https://gitrebasetool.mitmaro.ca/"
-  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/0.7.0.tar.gz"
-  sha256 "08e5d6dd9beacf7806abd74edfa9e7654ccb2ffc083b2fd8617d132951eee5bd"
+  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/1.0.0.tar.gz"
+  sha256 "74dc96e59820bd3352984618d307d9b4de2e257aed65d0c8b3118580ffb6da56"
 
   bottle do
     cellar :any
@@ -12,6 +12,7 @@ class InteractiveRebaseTool < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "libgit2"
   depends_on "openssl"
 
   def install
