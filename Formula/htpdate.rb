@@ -1,8 +1,8 @@
 class Htpdate < Formula
   desc "Synchronize time with remote web servers"
   homepage "http://www.vervest.org/htp/"
-  url "http://www.vervest.org/htp/archive/c/htpdate-0.9.1.tar.bz2"
-  sha256 "2afd132b00d33cd45eea9445387441174fe9bedf3fdf72c5a19f0051cf5a2446"
+  url "http://www.vervest.org/htp/archive/c/htpdate-1.2.0.tar.xz"
+  sha256 "22b2cf3ec45b0eedecddd3ad2a3d754ac57942ae7dcbac410d254935f0bdbc03"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +13,8 @@ class Htpdate < Formula
     sha256 "56073fc56009dac7f807d436f09732bf4e659d2374bb6a61646dc7f94740daa0" => :yosemite
     sha256 "973fb72128a9fe5e0c4c1aaaf9671b4ea706bc98ba5f96ecd10a2dae46049e57" => :mavericks
   end
+
+  depends_on :macos => :high_sierra # needs <sys/timex.h>
 
   def install
     system "make", "prefix=#{prefix}",
