@@ -21,7 +21,6 @@ class Jp2a < Formula
     system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make", "test"
     system "make", "install"
   end
 
