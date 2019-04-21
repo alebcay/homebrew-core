@@ -38,6 +38,7 @@ class Gdcm < Formula
       -DGDCM_INSTALL_PYTHONMODULE_DIR=#{lib}/python#{xy}/site-packages
       -DCMAKE_INSTALL_RPATH=#{lib}
       -DGDCM_NO_PYTHON_LIBS_LINKING=ON
+      -DPYTHON_VERSION_MAJOR=3
     ]
 
     mkdir "build" do
