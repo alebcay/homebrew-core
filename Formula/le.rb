@@ -14,8 +14,13 @@ class Le < Formula
 
   conflicts_with "logentries", :because => "both install a le binary"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   def install
     ENV.deparallelize
+    system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
