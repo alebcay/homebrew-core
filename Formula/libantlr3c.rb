@@ -1,9 +1,8 @@
 class Libantlr3c < Formula
   desc "ANTLRv3 parsing library for C"
   homepage "https://www.antlr3.org/"
-  url "https://www.antlr3.org/download/C/libantlr3c-3.4.tar.gz"
-  sha256 "ca914a97f1a2d2f2c8e1fca12d3df65310ff0286d35c48b7ae5f11dcc8b2eb52"
-  revision 1
+  url "https://github.com/antlr/antlr3/archive/3.5.2.tar.gz"
+  sha256 "a66d12fd5ca052fdd2b0a64b70d0c58db40e6dec72c3f4497934203090d92808"
 
   bottle do
     cellar :any
