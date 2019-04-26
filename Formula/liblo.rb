@@ -1,9 +1,8 @@
 class Liblo < Formula
   desc "Lightweight Open Sound Control implementation"
   homepage "https://liblo.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/liblo/liblo/0.29/liblo-0.29.tar.gz"
-  sha256 "ace1b4e234091425c150261d1ca7070cece48ee3c228a5612d048116d864c06a"
-  revision 1
+  url "https://downloads.sourceforge.net/project/liblo/liblo/0.30/liblo-0.30.tar.gz"
+  sha256 "30a7c9de49a25ed7f2425a7a7415f5b14739def62431423d3419ea26fb978d1b"
 
   bottle do
     cellar :any
