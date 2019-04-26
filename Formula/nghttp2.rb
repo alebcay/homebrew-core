@@ -3,6 +3,7 @@ class Nghttp2 < Formula
   homepage "https://nghttp2.org/"
   url "https://github.com/nghttp2/nghttp2/releases/download/v1.38.0/nghttp2-1.38.0.tar.xz"
   sha256 "ef75c761858241c6b4372fa6397aa0481a984b84b7b07c4ec7dc2d7b9eee87f8"
+  revision 1
 
   bottle do
     sha256 "aebb18502b1abd48b42022d09c37eff0486bdecd250e15e2cc98ca265f06e03a" => :mojave
