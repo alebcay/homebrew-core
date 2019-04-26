@@ -3,6 +3,7 @@ class Libcouchbase < Formula
   homepage "https://docs.couchbase.com/c-sdk/2.10/start-using-sdk.html"
   url "https://packages.couchbase.com/clients/c/libcouchbase-2.10.3.tar.gz"
   sha256 "1cc6c6a41dd1c92e26830e227b42c705bf6c4005342fb609d60fe2b63a5c5aa6"
+  revision 1
   head "https://github.com/couchbase/libcouchbase.git"
 
   bottle do
