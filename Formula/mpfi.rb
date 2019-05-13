@@ -1,8 +1,8 @@
 class Mpfi < Formula
   desc "Multiple precision interval arithmetic library"
   homepage "https://perso.ens-lyon.fr/nathalie.revol/software.html"
-  url "https://gforge.inria.fr/frs/download.php/file/37331/mpfi-1.5.3.tar.bz2"
-  sha256 "2383d457b208c6cd3cf2e66b69c4ce47477b2a0db31fbec0cd4b1ebaa247192f"
+  url "https://gforge.inria.fr/frs/download.php/file/37706/mpfi-1.5.4.tar.gz"
+  sha256 "76b01b9eed7150a44b3f6aea24ad4ac78b0f2078253be87ff6d1903d02dfa434"
 
   bottle do
     cellar :any
@@ -12,14 +12,20 @@ class Mpfi < Formula
     sha256 "50d3b78c1ef6837198a0320dbbe0852ad524f83bc2e12460bfbdc188bd1da76a" => :sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "gmp"
   depends_on "mpfr"
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make"
-    system "make", "check"
-    system "make", "install"
+    cd "mpfi" do
+      system "./autogen.sh"
+      system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+      system "make"
+      system "make", "check"
+      system "make", "install"
+    end
   end
 
   test do
