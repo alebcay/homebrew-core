@@ -1,8 +1,8 @@
 class Luarocks < Formula
   desc "Package manager for the Lua programming language"
   homepage "https://luarocks.org/"
-  url "https://luarocks.org/releases/luarocks-3.0.1.tar.gz"
-  sha256 "b989c4b60d6c9edcd65169e5e42fcffbd39cdbebe6b138fa5aea45102f8d9ec0"
+  url "https://luarocks.org/releases/luarocks-3.1.2.tar.gz"
+  sha256 "72a3b74f05b7fd011eed894dc34193ee80b3235fe58016ac9ffdbfceecc88950"
 
   bottle do
     cellar :any_skip_relocation
