@@ -1,8 +1,8 @@
 class Tin < Formula
   desc "Threaded, NNTP-, and spool-based UseNet newsreader"
   homepage "http://www.tin.org"
-  url "http://ftp.cuhk.edu.hk/pub/packages/news/tin/v2.4/tin-2.4.2.tar.gz"
-  sha256 "93839d2fd82175281c57f1a408dfb56bf716cf4f0b259b3e03462dca32391d51"
+  url "ftp://ftp.tin.org/pub/news/clients/tin/stable/tin-2.4.3.tar.xz"
+  sha256 "cb1dc96cc61dcd12ad2e047ae41f4328fb424571fa3d8105dd700d71fada42aa"
 
   bottle do
     sha256 "e8fb724dc37c9ff8cc7681ca5bac7ee335e8636f57482171ed4f3c31a59bf066" => :mojave
