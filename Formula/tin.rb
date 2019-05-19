@@ -1,7 +1,7 @@
 class Tin < Formula
   desc "Threaded, NNTP-, and spool-based UseNet newsreader"
   homepage "http://www.tin.org"
-  url "ftp://ftp.tin.org/pub/news/clients/tin/stable/tin-2.4.3.tar.xz"
+  url "http://www.nic.funet.fi/pub/unix/news/tin/v2.4/tin-2.4.3.tar.xz"
   sha256 "cb1dc96cc61dcd12ad2e047ae41f4328fb424571fa3d8105dd700d71fada42aa"
 
   bottle do
