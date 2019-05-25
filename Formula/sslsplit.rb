@@ -1,8 +1,8 @@
 class Sslsplit < Formula
   desc "Man-in-the-middle attacks against SSL encrypted network connections"
   homepage "https://www.roe.ch/SSLsplit"
-  url "https://mirror.roe.ch/rel/sslsplit/sslsplit-0.5.3.tar.bz2"
-  sha256 "6c4cbc42cd7fb023fed75b82a436d8c1c4beaeb317a2ef41c00403684e0885dd"
+  url "https://mirror.roe.ch/rel/sslsplit/sslsplit-0.5.4.tar.bz2"
+  sha256 "336c54c4578a2f2bd9d8bae153f31499156037515fa07d5fa7d5373f4c1378c2"
   head "https://github.com/droe/sslsplit.git", :branch => "develop"
 
   bottle do
@@ -16,6 +16,8 @@ class Sslsplit < Formula
   depends_on "check" => :build
   depends_on "pkg-config" => :build
   depends_on "libevent"
+  depends_on "libnet"
+  depends_on "libpcap"
   depends_on "openssl"
 
   def install
