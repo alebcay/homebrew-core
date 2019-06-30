@@ -3,6 +3,7 @@ class Qemu < Formula
   homepage "https://www.qemu.org/"
   url "https://download.qemu.org/qemu-4.1.0.tar.xz"
   sha256 "656e60218689bdeec69903087fd7582d5d3e72238d02f4481d8dc6d79fd909c6"
+  revision 1
   head "https://git.qemu.org/git/qemu.git"
 
   bottle do
