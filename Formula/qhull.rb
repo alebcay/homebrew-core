@@ -1,9 +1,9 @@
 class Qhull < Formula
   desc "Computes convex hulls in n dimensions"
   homepage "http://www.qhull.org/"
-  url "http://www.qhull.org/download/qhull-2015-src-7.2.0.tgz"
-  version "2015.2"
-  sha256 "78b010925c3b577adc3d58278787d7df08f7c8fb02c3490e375eab91bb58a436"
+  url "http://www.qhull.org/download/qhull-2019-src-7.3.2.tgz"
+  version "2019.1"
+  sha256 "2b7990558c363076261564f61b74db4d0d73b71869755108a469038c07dc43fb"
 
   bottle do
     cellar :any
