@@ -1,8 +1,8 @@
 class Qjackctl < Formula
   desc "Simple Qt application to control the JACK sound server daemon"
   homepage "https://qjackctl.sourceforge.io/"
-  url "https://downloads.sourceforge.net/qjackctl/qjackctl-0.5.3.tar.gz"
-  sha256 "813be3b92442ee89a1894407980cb3c95b549e6e94b6b155f218d15291530874"
+  url "https://downloads.sourceforge.net/qjackctl/qjackctl-0.5.9.tar.gz"
+  sha256 "f3fa7b3c1e28d56632de10c32e978a54f94c29b0239e2b6b2622d4a49ae65ee9"
   head "https://git.code.sf.net/p/qjackctl/code.git"
 
   bottle do
@@ -24,7 +24,7 @@ class Qjackctl < Formula
                           "--disable-xunique",
                           "--prefix=#{prefix}",
                           "--with-jack=#{Formula["jack"].opt_prefix}",
-                          "--with-qt5=#{Formula["qt"].opt_prefix}"
+                          "--with-qt=#{Formula["qt"].opt_prefix}"
 
     system "make", "install"
     prefix.install bin/"qjackctl.app"
