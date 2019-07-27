@@ -3,9 +3,8 @@ class Osc < Formula
 
   desc "The command-line interface to work with an Open Build Service"
   homepage "https://github.com/openSUSE/osc"
-  url "https://github.com/openSUSE/osc/archive/0.165.2.tar.gz"
-  sha256 "56c0819cd49d18c99561bd5af6f8fcfbf71ae1f56b3efbf34c81d0dfcd70606c"
-  revision 1
+  url "https://github.com/openSUSE/osc/archive/0.165.4.tar.gz"
+  sha256 "c5dd020dc451b482223af94f9a89f59e533f258b531ca8f9b43411d77036d36c"
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
@@ -17,26 +16,31 @@ class Osc < Formula
 
   depends_on "swig" => :build
   depends_on "openssl@1.1" # For M2Crypto
-  depends_on "python@2"
+  depends_on "python"
 
   resource "pycurl" do
-    url "https://files.pythonhosted.org/packages/12/3f/557356b60d8e59a1cce62ffc07ecc03e4f8a202c86adae34d895826281fb/pycurl-7.43.0.tar.gz"
-    sha256 "aa975c19b79b6aa6c0518c0cc2ae33528900478f0b500531dbcdbf05beec584c"
+    url "https://files.pythonhosted.org/packages/ac/b3/0f3979633b7890bab6098d84c84467030b807a1e2b31f5d30103af5a71ca/pycurl-7.43.0.3.tar.gz"
+    sha256 "6f08330c5cf79fa8ef68b9912b9901db7ffd34b63e225dce74db56bb21deda8e"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
 
   resource "urlgrabber" do
-    url "https://files.pythonhosted.org/packages/29/1a/f509987826e17369c52a80a07b257cc0de3d7864a303175f2634c8bcb3e3/urlgrabber-3.10.2.tar.gz"
-    sha256 "05b7164403d49b37fe00f7ac8401e56b00d0568ac45ee15d5f0610ac293c3070"
+    url "https://files.pythonhosted.org/packages/ad/9f/cdd1619aa18f1bcf442032cdc0878196400270abc99035d6cf98901e51a1/urlgrabber-4.0.0.tar.gz"
+    sha256 "79c5a01c5dd31906a7f38ef1f500030e137704804d585644693d3e474ed15f39"
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/01/bd/a41491718f9e2bebab015c42b5be7071c6695acfa301e3fc0480bfd6a15b/M2Crypto-0.27.0.tar.gz"
-    sha256 "82317459d653322d6b37f122ce916dc91ddcd9d1b814847497ac796c4549dd68"
+    url "https://files.pythonhosted.org/packages/74/18/3beedd4ac48b52d1a4d12f2a8c5cf0ae342ce974859fba838cbbc1580249/M2Crypto-0.35.2.tar.gz"
+    sha256 "4c6ad45ffb88670c590233683074f2440d96aaccb05b831371869fc387cbd127"
   end
 
   resource "typing" do
-    url "https://files.pythonhosted.org/packages/ca/38/16ba8d542e609997fdcd0214628421c971f8c395084085354b11ff4ac9c3/typing-3.6.2.tar.gz"
-    sha256 "d514bd84b284dd3e844f0305ac07511f097e325171f6cc4a20878d11ad771849"
+    url "https://files.pythonhosted.org/packages/60/e8/944bd083411be12c6d46d400a06744a5a85ad27d3c6e487a5da0d58950cc/typing-3.7.4.tar.gz"
+    sha256 "53765ec4f83a2b720214727e319607879fec4acde22c4fbb54fa2604e79e44ce"
   end
 
   def install
@@ -50,8 +54,8 @@ class Osc < Formula
 
     resource("M2Crypto").stage do
       inreplace "setup.py" do |s|
-        s.gsub! "self.openssl = '/usr'",
-                "self.openssl = '#{Formula["openssl@1.1"].opt_prefix}'"
+        s.gsub! "self.swig_opts.append('-I/usr/include/openssl')",
+                "self.swig_opts.append('-I#{Formula["openssl@1.1"].include}')"
         s.gsub! "platform.system() == \"Linux\"",
                 "platform.system() == \"Darwin\" or \\0"
       end
