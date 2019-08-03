@@ -12,7 +12,6 @@ class Fontforge < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python"
   depends_on "cairo"
   depends_on "fontconfig"
   depends_on "freetype"
@@ -26,6 +25,7 @@ class Fontforge < Formula
   depends_on "libtool"
   depends_on "libuninameslist"
   depends_on "pango"
+  depends_on "python"
   depends_on "readline"
   uses_from_macos "libxml2"
 
