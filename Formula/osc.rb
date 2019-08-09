@@ -43,6 +43,11 @@ class Osc < Formula
     sha256 "53765ec4f83a2b720214727e319607879fec4acde22c4fbb54fa2604e79e44ce"
   end
 
+  resource "virtualenv" do
+    url "https://files.pythonhosted.org/packages/a9/8a/580c7176f01540615c2eb3f3ab5462613b4beac4aa63410be89ecc7b7472/virtualenv-16.7.2.tar.gz"
+    sha256 "909fe0d3f7c9151b2df0a2cb53e55bdb7b0d61469353ff7a49fd47b0f0ab9285"
+  end
+
   def install
     # avoid pycurl error about compile-time and link-time curl version mismatch
     ENV.delete "SDKROOT"
