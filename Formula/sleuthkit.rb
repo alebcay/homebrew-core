@@ -3,6 +3,7 @@ class Sleuthkit < Formula
   homepage "https://www.sleuthkit.org/"
   url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.6.7/sleuthkit-4.6.7.tar.gz"
   sha256 "525fced79117929621fb583ed4a554a01a07e8739e9c000507acfa793f8d6915"
+  revision 1
 
   bottle do
     cellar :any
