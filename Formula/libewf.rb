@@ -1,10 +1,9 @@
 class Libewf < Formula
   desc "Library for support of the Expert Witness Compression Format"
   homepage "https://github.com/libyal/libewf"
-  url "https://deb.debian.org/debian/pool/main/libe/libewf/libewf_20140608.orig.tar.gz"
-  version "20140608"
-  sha256 "d14030ce6122727935fbd676d0876808da1e112721f3cb108564a4d9bf73da71"
-  revision 2
+  url "https://deb.debian.org/debian/pool/main/libe/libewf/libewf_20171104.orig.tar.gz"
+  version "20171104"
+  sha256 "cf36d3baf3a96dbe566fde55ae7d79fc2e7b998806ab13e0f69915799f19e040"
 
   bottle do
     cellar :any
