@@ -3,13 +3,15 @@ class Fpp < Formula
   homepage "https://facebook.github.io/PathPicker/"
   url "https://github.com/facebook/PathPicker/releases/download/0.8.2/fpp.0.8.2.tar.gz"
   sha256 "dea4fcd470c24c4a5a804307c86948da2a8d5fa5faaefe5892418f4ddae89c75"
+  revision 1
   head "https://github.com/facebook/pathpicker.git"
 
   bottle :unneeded
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
+    inreplace "fpp", "PYTHONCMD=\"python\"", "PYTHONCMD=\"python3\""
     # we need to copy the bash file and source python files
     libexec.install Dir["*"]
     # and then symlink the bash file
