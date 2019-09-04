@@ -38,6 +38,11 @@ class Osc < Formula
     sha256 "4c6ad45ffb88670c590233683074f2440d96aaccb05b831371869fc387cbd127"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/d9/ca/7279974e489e8b65003fe618a1a741d6350227fa2bf48d16be76c7422423/setuptools-41.2.0.zip"
+    sha256 "66b86bbae7cc7ac2e867f52dc08a6bd064d938bac59dfec71b9b565dd36d6012"
+  end
+
   resource "typing" do
     url "https://files.pythonhosted.org/packages/60/e8/944bd083411be12c6d46d400a06744a5a85ad27d3c6e487a5da0d58950cc/typing-3.7.4.tar.gz"
     sha256 "53765ec4f83a2b720214727e319607879fec4acde22c4fbb54fa2604e79e44ce"
