@@ -1,9 +1,8 @@
 class Wdc < Formula
   desc "WebDAV Client provides easy and convenient to work with WebDAV-servers"
-  homepage "https://designerror.github.io/webdav-client-cpp"
-  url "https://github.com/designerror/webdav-client-cpp/archive/v1.0.1.tar.gz"
-  sha256 "64b01de188032cb9e09f5060965bd90ed264e7c0b4ceb62bfc036d0caec9fd82"
-  revision 1
+  homepage "https://cloudpolis.github.io/webdav-client-cpp"
+  url "https://github.com/CloudPolis/webdav-client-cpp/archive/v1.1.2.tar.gz"
+  sha256 "ae613cc740ca29b8e507260730fa063c82b572fe2b3233358887658f1c8fb4cb"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,14 +12,16 @@ class Wdc < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "curl"
   depends_on "openssl@1.1"
   depends_on "pugixml"
 
   def install
     pugixml = Formula["pugixml"]
-    ENV.prepend "CXXFLAGS", "-I#{pugixml.opt_include.children.first}"
+    ENV.prepend "CXXFLAGS", "-I#{pugixml.opt_include}"
     system "cmake", ".", "-DPUGIXML_INCLUDE_DIR=#{pugixml.opt_include}",
-                         "-DPUGIXML_LIBRARY=#{pugixml.opt_lib}", *std_cmake_args
+                         "-DPUGIXML_LIBRARY=#{pugixml.opt_lib}", *std_cmake_args,
+                         "-DHUNTER_ENABLED=OFF"
     system "make", "install"
   end
 
@@ -49,8 +50,8 @@ class Wdc < Formula
                    "-L#{lib}", "-lwdc", "-I#{include}",
                    "-L#{openssl.opt_lib}", "-lssl", "-lcrypto",
                    "-I#{openssl.opt_include}",
-                   "-L#{Dir["#{pugixml.opt_lib}/pug*"].first}", "-lpugixml",
-                   "-I#{pugixml.opt_include.children.first}"
+                   "-L#{pugixml.opt_lib}", "-lpugixml",
+                   "-I#{pugixml.opt_include}"
     system "./test"
   end
 end
