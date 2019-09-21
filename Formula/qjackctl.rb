@@ -16,6 +16,9 @@ class Qjackctl < Formula
   depends_on "jack"
   depends_on "qt"
 
+  # https://sourceforge.net/p/qjackctl/code/ci/ffab9992cac6cca4dd5d26cc356050b5c95eedb8
+  patch :DATA
+
   def install
     ENV.cxx11
     system "./configure", "--disable-debug",
@@ -35,3 +38,16 @@ class Qjackctl < Formula
     assert_match version.to_s, shell_output("#{bin}/qjackctl --version 2>&1", 1)
   end
 end
+
+__END__
+--- a/src/qjackctlMainForm.cpp
++++ b/src/qjackctlMainForm.cpp
+@@ -500,7 +500,7 @@
+ 	// Install SIGTERM signal handler.
+ 	struct sigaction sigterm;
+ 	sigterm.sa_handler = qjackctl_sigterm_handler;
+-	::sigemptyset(&sigterm.sa_mask);
++	sigemptyset(&sigterm.sa_mask);
+ 	sigterm.sa_flags = 0;
+ 	sigterm.sa_flags |= SA_RESTART;
+ 	::sigaction(SIGTERM, &sigterm, NULL);
