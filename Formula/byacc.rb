@@ -1,8 +1,8 @@
 class Byacc < Formula
   desc "(Arguably) the best yacc variant"
   homepage "https://invisible-island.net/byacc/"
-  url "https://invisible-mirror.net/archives/byacc/byacc-20191103.tgz"
-  sha256 "d291fb34816f45079067366b7f7300ffbf9f7e3f1aaf6d509b84442d065d11b9"
+  url "https://invisible-mirror.net/archives/byacc/byacc-20191125.tgz"
+  sha256 "6c861ac574a3353d5331802ef455481594e5915b57ca6ff4b28990c6ddf0546c"
 
   bottle do
     cellar :any_skip_relocation
