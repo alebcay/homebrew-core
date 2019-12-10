@@ -17,24 +17,17 @@ class Circleci < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/CircleCI-Public/circleci-cli"
-    dir.install buildpath.children
-
-    cd dir do
-      commit = Utils.popen_read("git rev-parse --short HEAD").chomp
-      ldflags = %W[
-        -s -w
-        -X github.com/CircleCI-Public/circleci-cli/cmd.PackageManager=homebrew
-        -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
-        -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{commit}
-      ]
-      system "make", "pack"
-      system "go", "build", "-ldflags", ldflags.join(" "),
-             "-o", bin/"circleci"
-      prefix.install_metafiles
-    end
+    commit = Utils.popen_read("git rev-parse --short HEAD").chomp
+    ldflags = %W[
+      -s -w
+      -X github.com/CircleCI-Public/circleci-cli/cmd.PackageManager=homebrew
+      -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
+      -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{commit}
+    ]
+    system "make", "pack"
+    system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
+           "-o", bin/"circleci"
+    prefix.install_metafiles
   end
 
   test do
