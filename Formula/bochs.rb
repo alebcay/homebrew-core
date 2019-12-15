@@ -1,9 +1,8 @@
 class Bochs < Formula
   desc "Open source IA-32 (x86) PC emulator written in C++"
   homepage "https://bochs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.9/bochs-2.6.9.tar.gz"
-  sha256 "ee5b677fd9b1b9f484b5aeb4614f43df21993088c0c0571187f93acb0866e98c"
-  revision 2
+  url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.10/bochs-2.6.10.tar.gz"
+  sha256 "723f808b2c2ac6f886d90c4eb2000b8d075992661e6e47c8474e668e16e175b0"
 
   bottle do
     rebuild 1
@@ -15,6 +14,7 @@ class Bochs < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libtool"
+  depends_on "ncurses"
   depends_on "sdl2"
 
   # Fix pointer cast issue
