@@ -17,13 +17,9 @@ class Mage < Formula
   depends_on "go"
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/magefile/mage").install buildpath.children
-    cd "src/github.com/magefile/mage" do
-      system "go", "run", "bootstrap.go"
-      bin.install buildpath/"bin/mage"
-      prefix.install_metafiles
-    end
+    system "go", "run", "bootstrap.go"
+    bin.install buildpath/"bin/mage"
+    prefix.install_metafiles
   end
 
   test do
