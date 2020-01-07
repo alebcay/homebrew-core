@@ -1,9 +1,8 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://mkvtoolnix.download/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-40.0.0.tar.xz"
-  sha256 "f9248c9a137aa12e46c573d56de7f7da50864e2e4b18b88af21c84f49c21a336"
-  revision 1
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-42.0.0.tar.xz"
+  sha256 "2c8215c22a3a75925c0f1568235fbe2e34172021e43fb45081400b7c6b610033"
 
   bottle do
     cellar :any
@@ -32,9 +31,14 @@ class Mkvtoolnix < Formula
   depends_on "libogg"
   depends_on "libvorbis"
 
-  def install
-    ENV.cxx11
+  # The following features of the C++11/C++14/C++17 standards are not supported by clang++:
+  # * std::optional (C++17)
+  fails_with :clang if MacOS.version <= :high_sierra
 
+  # error: expected constructor, destructor, or type conversion before '(' token
+  fails_with :gcc
+
+  def install
     features = %w[flac libebml libmagic libmatroska libogg libvorbis]
     extra_includes = ""
     extra_libs = ""
