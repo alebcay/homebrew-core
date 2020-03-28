@@ -16,7 +16,7 @@ class Kubeseal < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "kubeseal"
+    system "make", "kubeseal", "DIRTY="
     bin.install "kubeseal"
   end
 
