@@ -1,9 +1,8 @@
 class Petsc < Formula
   desc "Portable, Extensible Toolkit for Scientific Computation (real)"
   homepage "https://www.mcs.anl.gov/petsc/"
-  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.12.4.tar.gz"
-  sha256 "800a965dd01adac099a186588cda68e4fcb224af326d8aaf55978361c019258f"
-  revision 1
+  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.13.0.tar.gz"
+  sha256 "f0ea543a54145c5d1387e25b121c3fd1b1ca834032c5a33f6f1d929e95bdf0e5"
 
   bottle do
     sha256 "f6b9afb3d5ab24dfabf2bacabf184218b89912d741c68966eb116ac139a95cba" => :catalina
@@ -35,7 +34,7 @@ class Petsc < Formula
   end
 
   test do
-    test_case = "#{pkgshare}/examples/src/ksp/ksp/examples/tutorials/ex1.c"
+    test_case = "#{pkgshare}/examples/src/ksp/ksp/tests/ex1.c"
     system "mpicc", test_case, "-I#{include}", "-L#{lib}", "-lpetsc", "-o", "test"
     output = shell_output("./test")
     # This PETSc example prints several lines of output. The last line contains
