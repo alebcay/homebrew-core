@@ -14,11 +14,11 @@ class Bigloo < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on :java
   depends_on "libtool" => :build
   depends_on "libunistring" => :build
 
   depends_on "gmp"
+  depends_on :java
   depends_on "openssl@1.1"
 
   def install
