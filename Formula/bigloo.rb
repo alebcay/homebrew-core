@@ -1,10 +1,9 @@
 class Bigloo < Formula
   desc "Scheme implementation with object system, C, and Java interfaces"
   homepage "https://www-sop.inria.fr/indes/fp/Bigloo/"
-  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo4.3e.tar.gz"
-  version "4.3e"
-  sha256 "43363cb968c57925f402117ff8ec4b47189e2747b02350805a34fa617d9f618a"
-  revision 1
+  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo4.3h.tar.gz"
+  version "4.3h"
+  sha256 "2f6e74ed84acc109e5c46c1e7601043176ed6d8bf64666995015396d1240803b"
 
   bottle do
     sha256 "06c2d3728e778db36954a6fca8ecc8cb663d90122a884cfb0fc96ce1de36663a" => :catalina
@@ -38,18 +37,11 @@ class Bigloo < Formula
     ]
 
     system "./configure", *args
-
-    # bigloo seems to either miss installing these dependencies, or maybe
-    # do it out of order with where they're used.
-    cd "libunistring" do
-      system "make", "install"
-    end
-    cd "pcre" do
-      system "make", "install"
-    end
-
     system "make"
     system "make", "install"
+
+    # gmp and libunistring info files will conflict with gmp and libunistring formulae
+    rm Dir["#{info}/{gmp,libunistring}.*"]
 
     # Install the other manpages too
     manpages = %w[bgldepend bglmake bglpp bgltags bglafile bgljfile bglmco bglprof]
