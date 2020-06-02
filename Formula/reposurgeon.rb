@@ -2,8 +2,8 @@ class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
   url "https://gitlab.com/esr/reposurgeon.git",
-      :tag      => "3.48",
-      :revision => "911d5c1168f7839855b577ea43971c7c35cacef8"
+      :tag      => "4.10",
+      :revision => "d5a7c39721bec60c3a71a89ca7d50db27cfe952e"
   head "https://gitlab.com/esr/reposurgeon.git"
 
   bottle do
@@ -13,10 +13,8 @@ class Reposurgeon < Formula
     sha256 "22f79c6f4746a5fcffe63be2247c748e5335082384a9309bdba061ff686813d0" => :high_sierra
   end
 
-  depends_on "asciidoc" => :build
+  depends_on "asciidoctor" => :build
   depends_on "go" => :build
-  depends_on "xmlto" => :build
-  depends_on "pypy"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
