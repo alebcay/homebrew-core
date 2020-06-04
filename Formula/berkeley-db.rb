@@ -2,10 +2,8 @@ class BerkeleyDb < Formula
   desc "High performance key/value database"
   homepage "https://www.oracle.com/technology/products/berkeley-db/index.html"
   # Requires registration to download so we mirror it
-  url "https://dl.bintray.com/homebrew/mirror/berkeley-db-18.1.32.tar.gz"
-  mirror "https://fossies.org/linux/misc/db-18.1.32.tar.gz"
-  sha256 "fa1fe7de9ba91ad472c25d026f931802597c29f28ae951960685cde487c8d654"
-  revision 1
+  url "https://dl.bintray.com/homebrew/mirror/berkeley-db-18.1.40.tar.gz"
+  sha256 "0cecb2ef0c67b166de93732769abdeba0555086d51de1090df325e18ee8da9c8"
 
   bottle do
     cellar :any
