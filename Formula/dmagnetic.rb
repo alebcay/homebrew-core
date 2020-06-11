@@ -17,7 +17,7 @@ class Dmagnetic < Formula
   end
 
   test do
-    assert_match "2d90033c199915d2f4d4ecc964121928", \
+    assert_match "0be77b320a608a1778a0714adafaed69", \
       shell_output("echo Hello | #{bin}/dMagnetic -ini "\
         "#{share}/games/dMagnetic/dMagnetic.ini -mag "\
         "#{share}/games/dMagnetic/minitest.mag -gfx "\
