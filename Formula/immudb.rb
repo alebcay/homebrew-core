@@ -1,8 +1,8 @@
 class Immudb < Formula
   desc "Lightweight, high-speed immutable database"
   homepage "https://www.codenotary.io"
-  url "https://github.com/codenotary/immudb/archive/v0.6.1.tar.gz"
-  sha256 "313f09b82f89208705daaf0be16238e1a4f90e590edd038c1719d181ce0ed653"
+  url "https://github.com/codenotary/immudb/archive/v0.6.2.tar.gz"
+  sha256 "28a8a697251e8b7c53924756570d13180fafe503c4cd9cae7666960a7f4fe745"
 
   bottle do
     cellar :any_skip_relocation
