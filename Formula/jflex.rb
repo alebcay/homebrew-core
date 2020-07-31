@@ -11,11 +11,7 @@ class Jflex < Formula
   def install
     pkgshare.install "examples"
     libexec.install "lib/jflex-full-#{version}.jar" => "jflex-#{version}.jar"
-    (bin/"jflex").write <<~EOS
-      #!/bin/bash
-      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
-      exec "${JAVA_HOME}/bin/java" -jar "#{libexec}/jflex-#{version}.jar" "$@"
-    EOS
+    bin.write_jar_script libexec/"jflex-#{version}.jar", "jflex"
   end
 
   test do
