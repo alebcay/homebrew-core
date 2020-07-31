@@ -15,11 +15,7 @@ class Jasmin < Formula
 
     libexec.install Dir["*.jar"]
     prefix.install %w[Readme.txt license-ant.txt license-jasmin.txt]
-    (bin/"jasmin").write <<~EOS
-      #!/bin/bash
-      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
-      exec "${JAVA_HOME}/bin/java" -jar "#{libexec}/jasmin.jar" "$@"
-    EOS
+    bin.write_jar_script libexec/"jasmin.jar", "jasmin"
   end
 
   test do
