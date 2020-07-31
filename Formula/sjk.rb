@@ -11,11 +11,7 @@ class Sjk < Formula
 
   def install
     libexec.install "sjk-plus-#{version}.jar"
-    (bin/"sjk").write <<~EOS
-      #!/bin/bash
-      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
-      exec "${JAVA_HOME}/bin/java" -jar "#{libexec}/sjk-plus-#{version}.jar" "$@"
-    EOS
+    bin.write_jar_script libexec/"sjk-plus-#{version}.jar", "sjk"
   end
 
   test do
