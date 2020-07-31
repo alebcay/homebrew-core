@@ -25,11 +25,7 @@ class Metabase < Formula
       libexec.install "metabase.jar"
     end
 
-    (bin/"metabase").write <<~EOS
-      #!/bin/bash
-      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
-      exec "${JAVA_HOME}/bin/java" -jar "#{libexec}/metabase.jar" "$@"
-    EOS
+    bin.write_jar_script libexec/"metabase.jar", "metabase"
   end
 
   plist_options startup: true, manual: "metabase"
