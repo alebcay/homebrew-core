@@ -3,6 +3,8 @@ class SonarqubeLts < Formula
   homepage "https://www.sonarqube.org/"
   url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.4.zip"
   sha256 "67fd0e9b2f4a1cf481ac9c5487173e4b1aa05381e6219428f53de510c8f2289d"
+  license "LGPL-3.0-only"
+  revision 1
 
   bottle :unneeded
 
@@ -17,7 +19,7 @@ class SonarqubeLts < Formula
     libexec.install Dir["*"]
 
     (bin/"sonar").write_env_script libexec/"bin/macosx-universal-64/sonar.sh",
-      JAVA_HOME: Formula["openjdk"].opt_prefix
+      Language::Java.overridable_java_home_env
   end
 
   plist_options manual: "sonar console"
