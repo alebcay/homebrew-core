@@ -3,6 +3,8 @@ class Igv < Formula
   homepage "https://www.broadinstitute.org/software/igv"
   url "https://data.broadinstitute.org/igv/projects/downloads/2.8/IGV_2.8.9.zip"
   sha256 "4e34138e8567ac6948b683ed6184108998c0e62b0bac25e7efd9dccb44970af6"
+  license "MIT"
+  revision 1
 
   bottle :unneeded
 
@@ -13,7 +15,7 @@ class Igv < Formula
     bin.install "igv.sh" => "igv"
     bin.install "igvtools"
     libexec.install "igv.args", "lib"
-    bin.env_script_all_files libexec, JAVA_HOME: Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec, Language::Java.overridable_java_home_env
   end
 
   test do
