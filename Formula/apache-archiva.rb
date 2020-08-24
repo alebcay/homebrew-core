@@ -5,6 +5,7 @@ class ApacheArchiva < Formula
   mirror "https://archive.apache.org/dist/archiva/2.2.5/binaries/apache-archiva-2.2.5-bin.tar.gz"
   sha256 "01119af2d9950eacbcce0b7f8db5067b166ad26c1e1701bef829105441bb6e29"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
@@ -12,7 +13,7 @@ class ApacheArchiva < Formula
 
   def install
     libexec.install Dir["*"]
-    (bin/"archiva").write_env_script libexec/"bin/archiva", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"archiva").write_env_script libexec/"bin/archiva", Language::Java.overridable_java_home_env
   end
 
   def post_install
