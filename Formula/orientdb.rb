@@ -1,8 +1,9 @@
 class Orientdb < Formula
   desc "Graph database"
-  homepage "https://orientdb.com/"
-  url "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.1/orientdb-3.1.1.zip"
-  sha256 "1538bfcc5d1a83e8a686be37950a69a2466d19eb824f754367a7b254c56b748f"
+  homepage "https://orientdb.org/"
+  url "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.2/orientdb-3.1.2.zip"
+  sha256 "14fdd2e2ca596f0336175590851fa3a10130a7265f4df5ef8c0c1faf8253f8df"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
@@ -33,9 +34,9 @@ class Orientdb < Formula
     inreplace "#{libexec}/bin/orientdb.sh", 'su $ORIENTDB_USER -c "cd \"$ORIENTDB_DIR/bin\";', ""
     inreplace "#{libexec}/bin/orientdb.sh", '&"', "&"
 
-    (bin/"orientdb").write_env_script "#{libexec}/bin/orientdb.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
-    (bin/"orientdb-console").write_env_script "#{libexec}/bin/console.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
-    (bin/"orientdb-gremlin").write_env_script "#{libexec}/bin/gremlin.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"orientdb").write_env_script "#{libexec}/bin/orientdb.sh", Language::Java.overridable_java_home_env
+    (bin/"orientdb-console").write_env_script "#{libexec}/bin/console.sh", Language::Java.overridable_java_home_env
+    (bin/"orientdb-gremlin").write_env_script "#{libexec}/bin/gremlin.sh", Language::Java.overridable_java_home_env
   end
 
   def post_install
