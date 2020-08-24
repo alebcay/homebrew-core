@@ -3,6 +3,8 @@ class Mockserver < Formula
   homepage "https://www.mock-server.com/"
   url "https://oss.sonatype.org/content/repositories/releases/org/mock-server/mockserver-netty/5.11.1/mockserver-netty-5.11.1-brew-tar.tar"
   sha256 "9ceacc0be86fcbd24fe3bdc1e0160d15228e8adabc866aa73887a2cc24a72a6a"
+  license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
@@ -10,7 +12,7 @@ class Mockserver < Formula
 
   def install
     libexec.install Dir["*"]
-    (bin/"mockserver").write_env_script libexec/"bin/run_mockserver.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"mockserver").write_env_script libexec/"bin/run_mockserver.sh", Language::Java.overridable_java_home_env
 
     lib.install_symlink "#{libexec}/lib" => "mockserver"
 
