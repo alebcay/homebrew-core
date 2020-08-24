@@ -4,6 +4,7 @@ class Flyway < Formula
   url "https://search.maven.org/remotecontent?filepath=org/flywaydb/flyway-commandline/6.5.5/flyway-commandline-6.5.5.tar.gz"
   sha256 "b6a5809ae91cc8acf9c11312967d732937d9ce3810584f729b54b354f3a3803c"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
@@ -12,7 +13,7 @@ class Flyway < Formula
   def install
     rm Dir["*.cmd"]
     libexec.install Dir["*"]
-    (bin/"flyway").write_env_script libexec/"flyway", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"flyway").write_env_script libexec/"flyway", Language::Java.overridable_java_home_env
   end
 
   test do
