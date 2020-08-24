@@ -3,6 +3,8 @@ class DependencyCheck < Formula
   homepage "https://owasp.org/www-project-dependency-check/"
   url "https://dl.bintray.com/jeremy-long/owasp/dependency-check-5.3.2-release.zip"
   sha256 "4c6f40cb596e335fd0cd816bd6c25773e1e029c3109979ce4c429f3b49850252"
+  license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
@@ -15,7 +17,7 @@ class DependencyCheck < Formula
     libexec.install Dir["*"]
 
     (bin/"dependency-check").write_env_script libexec/"bin/dependency-check.sh",
-      JAVA_HOME: Formula["openjdk"].opt_prefix
+      Language::Java.overridable_java_home_env
 
     (var/"dependencycheck").mkpath
     libexec.install_symlink var/"dependencycheck" => "data"
