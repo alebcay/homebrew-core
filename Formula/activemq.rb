@@ -5,6 +5,7 @@ class Activemq < Formula
   mirror "https://archive.apache.org/dist/activemq/5.16.0/apache-activemq-5.16.0-bin.tar.gz"
   sha256 "d399f51a34944a48b49153ffbeb50cef42666185efbec6d5aa588a0d2ca1c874"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
@@ -13,7 +14,7 @@ class Activemq < Formula
   def install
     rm_rf Dir["bin/linux-x86-*"]
     libexec.install Dir["*"]
-    (bin/"activemq").write_env_script libexec/"bin/activemq", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"activemq").write_env_script libexec/"bin/activemq", Language::Java.overridable_java_home_env
   end
 
   plist_options manual: "activemq start"
