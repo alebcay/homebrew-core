@@ -5,6 +5,7 @@ class Fop < Formula
   mirror "https://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-2.5-bin.tar.gz"
   sha256 "6a3c5f8915be5ef90fff202c818152d8252bb45b96d9c5d6550594903739e5ed"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
@@ -21,7 +22,7 @@ class Fop < Formula
 
     executable = libexec/"fop/fop"
     executable.chmod 0555
-    (bin/"fop").write_env_script executable, JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"fop").write_env_script executable, Language::Java.overridable_java_home_env
 
     resource("hyph").stage do
       (libexec/"fop/build").install "fop-hyph.jar"
