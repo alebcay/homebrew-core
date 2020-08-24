@@ -5,6 +5,7 @@ class Basex < Formula
   version "9.4.2"
   sha256 "e58dfc425c88ab8f4d45c0c9ea64684a298205b5947c7586f40286c23fcf6976"
   license "BSD-3-Clause"
+  revision 1
 
   bottle :unneeded
 
@@ -18,7 +19,7 @@ class Basex < Formula
     prefix.install_metafiles
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   test do
