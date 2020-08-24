@@ -5,6 +5,7 @@ class Tomcat < Formula
   mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.37/bin/apache-tomcat-9.0.37.tar.gz"
   sha256 "8fb4cfa459a3f027b855334fbdc7197fa5378e504853a98009281d8e149b1bc7"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
@@ -17,7 +18,7 @@ class Tomcat < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", Language::Java.overridable_java_home_env
   end
 
   plist_options manual: "catalina run"
