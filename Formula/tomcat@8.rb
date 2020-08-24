@@ -5,6 +5,7 @@ class TomcatAT8 < Formula
   mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz"
   sha256 "2615839daf1899cd705f9b82f2df6bd21adb29a93a05afdea0a6192ce54025c4"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
@@ -19,7 +20,7 @@ class TomcatAT8 < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", Language::Java.overridable_java_home_env
   end
 
   plist_options manual: "catalina run"
