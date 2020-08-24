@@ -3,6 +3,8 @@ class Artifactory < Formula
   homepage "https://www.jfrog.com/artifactory/"
   url "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-6.21.0.zip"
   sha256 "b009cd8f1b4b07111c138172fcadfd89c559285b57dcb558baf1140351ee8ea8"
+  license "AGPL-3.0-only"
+  revision 1
 
   bottle :unneeded
 
@@ -25,7 +27,7 @@ class Artifactory < Formula
     # Memory Options
     bin.install libexec/"bin/artifactory.default"
 
-    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   def post_install
