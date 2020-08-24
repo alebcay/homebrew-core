@@ -4,6 +4,7 @@ class HapiFhirCli < Formula
   url "https://github.com/jamesagnew/hapi-fhir/releases/download/v5.1.0/hapi-fhir-5.1.0-cli.zip"
   sha256 "c1409b30eefa26a765be9f200d7a7fbe0f8345f51cdfb457c5796f1284b79a5f"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
@@ -18,7 +19,7 @@ class HapiFhirCli < Formula
     inreplace "hapi-fhir-cli", /SCRIPTDIR=(.*)/, "SCRIPTDIR=#{libexec}"
     libexec.install "hapi-fhir-cli.jar"
     bin.install "hapi-fhir-cli"
-    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   test do
