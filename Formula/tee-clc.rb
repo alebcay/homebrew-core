@@ -4,7 +4,7 @@ class TeeClc < Formula
   url "https://github.com/Microsoft/team-explorer-everywhere/releases/download/14.134.0/TEE-CLC-14.134.0.zip"
   sha256 "af4b7123a09475ff03a3f5662df3de614df2f4acc33df16cdab307b5fb6d7dc7"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle :unneeded
 
@@ -15,7 +15,7 @@ class TeeClc < Formula
   def install
     libexec.install "tf", "lib"
     (libexec/"native").install "native/macosx"
-    (bin/"tf").write_env_script libexec/"tf", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"tf").write_env_script libexec/"tf", Language::Java.overridable_java_home_env
 
     prefix.install "ThirdPartyNotices.html"
     share.install "help"
