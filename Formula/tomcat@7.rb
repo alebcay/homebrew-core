@@ -5,6 +5,7 @@ class TomcatAT7 < Formula
   mirror "https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.105/bin/apache-tomcat-7.0.105.tar.gz"
   sha256 "1a36882b5e25fff4f5d8c10e4029f29e43b1db96e0df03bdbed1fa913038392f"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
@@ -22,7 +23,7 @@ class TomcatAT7 < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", Language::Java.overridable_java_home_env
   end
 
   plist_options manual: "catalina run"
