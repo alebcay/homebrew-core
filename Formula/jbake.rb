@@ -3,6 +3,8 @@ class Jbake < Formula
   homepage "https://jbake.org/"
   url "https://dl.bintray.com/jbake/binary/jbake-2.6.5-bin.zip"
   sha256 "a2a7b885749f622cf68c10484291cbd2592d10fd80281caa6766f3d872932632"
+  license "MIT"
+  revision 1
 
   bottle :unneeded
 
@@ -12,7 +14,7 @@ class Jbake < Formula
     rm_f Dir["bin/*.bat"]
     libexec.install Dir["*"]
     bin.install libexec/"bin/jbake"
-    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   test do
