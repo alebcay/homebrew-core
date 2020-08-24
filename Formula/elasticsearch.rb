@@ -4,6 +4,7 @@ class Elasticsearch < Formula
   url "https://github.com/elastic/elasticsearch/archive/v7.8.1.tar.gz"
   sha256 "e222d4165fb4145222491e1ed33dad15acc7b56334ca6589202e2ee761900c78"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -54,7 +55,7 @@ class Elasticsearch < Formula
                 libexec/"bin/elasticsearch-keystore",
                 libexec/"bin/elasticsearch-plugin",
                 libexec/"bin/elasticsearch-shard"
-    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix)
+    bin.env_script_all_files(libexec/"bin", Language::Java.overridable_java_home_env)
   end
 
   def post_install
