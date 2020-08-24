@@ -4,7 +4,8 @@ class Kawa < Formula
   url "https://ftp.gnu.org/gnu/kawa/kawa-3.1.1.zip"
   mirror "https://ftpmirror.gnu.org/kawa/kawa-3.1.1.zip"
   sha256 "dab1f41da968191fc68be856f133e3d02ce65d2dbd577a27e0490f18ca00fa22"
-  revision 1
+  license "MIT"
+  revision 2
 
   bottle :unneeded
 
@@ -15,7 +16,7 @@ class Kawa < Formula
     inreplace "bin/kawa", "thisfile=`command -v $0`",
                           "thisfile=#{libexec}/bin/kawa"
     libexec.install "bin", "lib"
-    (bin/"kawa").write_env_script libexec/"bin/kawa", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"kawa").write_env_script libexec/"bin/kawa", Language::Java.overridable_java_home_env
     doc.install Dir["doc/*"]
   end
 
