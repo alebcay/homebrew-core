@@ -4,6 +4,7 @@ class DitaOt < Formula
   url "https://github.com/dita-ot/dita-ot/releases/download/3.5.3/dita-ot-3.5.3.zip"
   sha256 "dffe64576fd78c14cd011b6cabcd022a2fe900a415c7fbe1e6f4f8fd921607b4"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
@@ -12,7 +13,7 @@ class DitaOt < Formula
   def install
     rm_f Dir["bin/*.bat", "config/env.bat", "startcmd.*"]
     libexec.install Dir["*"]
-    (bin/"dita").write_env_script libexec/"bin/dita", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"dita").write_env_script libexec/"bin/dita", Language::Java.overridable_java_home_env
   end
 
   test do
