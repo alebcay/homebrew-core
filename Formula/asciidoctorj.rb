@@ -4,6 +4,7 @@ class Asciidoctorj < Formula
   url "https://dl.bintray.com/asciidoctor/maven/org/asciidoctor/asciidoctorj/2.4.0/asciidoctorj-2.4.0-bin.zip"
   sha256 "4a205dd61eff87794072510c27f20bbb25dd8401e9486e483b40e4555daad8d9"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
@@ -12,7 +13,7 @@ class Asciidoctorj < Formula
   def install
     rm_rf Dir["bin/*.bat"] # Remove Windows files.
     libexec.install Dir["*"]
-    (bin/"asciidoctorj").write_env_script libexec/"bin/asciidoctorj", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"asciidoctorj").write_env_script libexec/"bin/asciidoctorj", Language::Java.overridable_java_home_env
   end
 
   test do
