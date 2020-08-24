@@ -5,7 +5,7 @@ class Apollo < Formula
   mirror "https://archive.apache.org/dist/activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz"
   sha256 "74577339a1843995a5128d14c68b21fb8f229d80d8ce1341dd3134f250ab689d"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -39,7 +39,7 @@ class Apollo < Formula
     (libexec/"lib").install resource("bdb-je")
     (libexec/"lib").install resource("mqtt")
 
-    (bin/"apollo").write_env_script libexec/"bin/apollo", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"apollo").write_env_script libexec/"bin/apollo", Language::Java.overridable_java_home_env
   end
 
   def caveats
