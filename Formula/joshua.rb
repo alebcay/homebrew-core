@@ -3,7 +3,8 @@ class Joshua < Formula
   homepage "https://joshua.incubator.apache.org/"
   url "https://cs.jhu.edu/~post/files/joshua-6.0.5.tgz"
   sha256 "972116a74468389e89da018dd985f1ed1005b92401907881a14bdcc1be8bd98a"
-  revision 1
+  license "Apache-2.0"
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -21,7 +22,7 @@ class Joshua < Formula
 
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   test do
