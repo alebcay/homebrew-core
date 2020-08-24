@@ -6,6 +6,7 @@ class Sqoop < Formula
   version "1.4.7"
   sha256 "64111b136dbadcb873ce17e09201f723d4aea81e5e7c843e400eb817bb26f235"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
@@ -32,7 +33,7 @@ class Sqoop < Formula
     libexec.install Dir["*.jar"]
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix)
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
 
     # Install a sqoop-env.sh file
     envs = libexec/"conf/sqoop-env.sh"
