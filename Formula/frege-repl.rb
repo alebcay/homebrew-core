@@ -5,7 +5,7 @@ class FregeRepl < Formula
   version "1.4-SNAPSHOT"
   sha256 "2ca5f13bc5efaf8515381e8cdf99b4d4017264a462a30366a873cb54cc4f4640"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   bottle :unneeded
 
@@ -14,7 +14,7 @@ class FregeRepl < Formula
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install "bin", "lib"
-    (bin/"frege-repl").write_env_script libexec/"bin/frege-repl", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"frege-repl").write_env_script libexec/"bin/frege-repl", Language::Java.overridable_java_home_env
   end
 
   test do
