@@ -3,7 +3,7 @@ class ApacheCtakes < Formula
   homepage "https://ctakes.apache.org"
   url "https://apache.osuosl.org/ctakes/ctakes-4.0.0/apache-ctakes-4.0.0-bin.tar.gz"
   sha256 "37ca2b8dfe06465469ed1830fbb84dfc7bcc4295e5387d66e90a76ad2a5cdeaf"
-  revision 1
+  revision 2
 
   bottle :unneeded
 
@@ -15,7 +15,7 @@ class ApacheCtakes < Formula
     pkgshare.install_symlink libexec/"resources/org/apache/ctakes/examples"
 
     bin.install Dir["#{libexec}/bin/*.sh"]
-    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   test do
