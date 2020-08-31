@@ -3,8 +3,8 @@ class C7n < Formula
 
   desc "Rules engine for cloud security, cost optimization, and governance"
   homepage "https://github.com/cloud-custodian/cloud-custodian"
-  url "https://github.com/cloud-custodian/cloud-custodian/archive/0.9.4.0.tar.gz"
-  sha256 "f875fb72a827a2e088018f4b58fa1553e1e1325d9b57b9bbfb79e51ef13c31ec"
+  url "https://github.com/cloud-custodian/cloud-custodian/archive/0.9.5.0.tar.gz"
+  sha256 "caae1d52ed850ec365839798e1f87cbcf9ff28c374192598eed5292d3ca02730"
   license "Apache-2.0"
 
   livecheck do
@@ -32,13 +32,13 @@ class C7n < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/71/ae/98f3cadaa11566e4f81d702157913bffde32dead29d5bafcd6e14a0f2567/boto3-1.14.35.tar.gz"
-    sha256 "df19f35e2d73e77c72f756f98805785f45dd26c608b704b105e9f8fec6992c1e"
+    url "https://files.pythonhosted.org/packages/24/96/29d0a750857aa3a7a8680d88de687c00dd6569bc2e819d6135dfdea72dfd/boto3-1.14.31.tar.gz"
+    sha256 "71dc5ef3c43cf5cc62904e90805c6c41d9f850d72af12abb4cd6f3bbb7d8d1c9"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/41/f4/2e18f6346cbdc5bd0e0a7c49f8095d1c99559bb05b6fa9402a3eaa0585e6/botocore-1.17.35.tar.gz"
-    sha256 "0f69698a59e7829d34851ea5025338bddc4352300ba7df619842eac173bc4a4e"
+    url "https://files.pythonhosted.org/packages/0e/d7/9fc034074c4566920d809de98ad4049661eb760e467212c55823e010af55/botocore-1.17.31.tar.gz"
+    sha256 "1b098739f4b57851023ce64cc10af0451feab5e403a4f3c28c545130e50f24bc"
   end
 
   resource "docutils" do
