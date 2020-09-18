@@ -1,8 +1,8 @@
 class CdogsSdl < Formula
   desc "Classic overhead run-and-gun game"
   homepage "https://cxong.github.io/cdogs-sdl/"
-  url "https://github.com/cxong/cdogs-sdl/archive/0.8.0.tar.gz"
-  sha256 "ae5f493cfbbb5809824af79b164bd9a2ab7f7cfeb32468ff48f36b4a14982aba"
+  url "https://github.com/cxong/cdogs-sdl/archive/0.9.0.tar.gz"
+  sha256 "db1fc06f3a7ee49a5ed1505faeb7d3c8fd11d385dcb6c1042870e524839737bc"
   license "GPL-2.0"
   head "https://github.com/cxong/cdogs-sdl.git"
 
