@@ -19,7 +19,7 @@ class Flank < Formula
       gcloud:
         device:
         - model: Pixel2
-          version: 29
+          version: "29"
           locale: en
           orientation: portrait
     EOS
