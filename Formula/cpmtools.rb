@@ -1,9 +1,8 @@
 class Cpmtools < Formula
   desc "Tools to access CP/M file systems"
   homepage "http://www.moria.de/~michael/cpmtools/"
-  url "http://www.moria.de/~michael/cpmtools/files/cpmtools-2.20.tar.gz"
-  sha256 "d8c7e78a9750994124f3aab6e461da8fa0021acc7dbad76eafbac8b0ed8279d3"
-  revision 1
+  url "http://www.moria.de/~michael/cpmtools/files/cpmtools-2.21.tar.gz"
+  sha256 "a0032a17f9350ad1a2b80dea52c94c66cb2b49dfb38e402b5df22bdc2c5029d0"
 
   bottle do
     sha256 "2a7281836c39574fe905ee34110756703298b774984d6796663c55d04dee7ea2" => :mojave
