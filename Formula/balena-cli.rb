@@ -4,8 +4,8 @@ class BalenaCli < Formula
   desc "Command-line tool for interacting with the balenaCloud and balena API"
   homepage "https://www.balena.io/docs/reference/cli/"
   # balena-cli should only be updated every 10 releases on multiples of 10
-  url "https://registry.npmjs.org/balena-cli/-/balena-cli-12.25.0.tgz"
-  sha256 "af78b891de5492e567d731dee62369b3d1247c262acf94d2bf4e2379790a947e"
+  url "https://registry.npmjs.org/balena-cli/-/balena-cli-12.40.0.tgz"
+  sha256 "b2588f765efb5767397c8fa6cf50c0cc355eaa5d749233d2ac07ae0c29a0d7d9"
   license "Apache-2.0"
 
   bottle do
@@ -14,7 +14,7 @@ class BalenaCli < Formula
     sha256 high_sierra: "0e670f3cc482565ddc1a166316407fab2fd008f12128a06f7f73c3bcf07a641d"
   end
 
-  depends_on "node"
+  depends_on "node@12"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
