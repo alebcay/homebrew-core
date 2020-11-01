@@ -3,6 +3,7 @@ class Vsearch < Formula
   homepage "https://github.com/torognes/vsearch"
   url "https://github.com/torognes/vsearch/archive/v2.15.1.tar.gz"
   sha256 "b10e93f1bdbb79dc689cb6e0c981d71f2e20eb8c4817392aa7f6b30da54e583e"
+  license any_of: ["BSD-2-Clause", "GPL-3.0-or-later"]
 
   bottle do
     cellar :any_skip_relocation
