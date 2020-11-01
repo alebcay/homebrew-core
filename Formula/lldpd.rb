@@ -3,6 +3,7 @@ class Lldpd < Formula
   homepage "https://vincentbernat.github.io/lldpd/"
   url "https://media.luffy.cx/files/lldpd/lldpd-1.0.7.tar.gz"
   sha256 "1df79179d489c841b49265f2ab5ff05f284a647e95862d2f3c02b3fb079a87e1"
+  license "ISC"
 
   livecheck do
     url "https://github.com/vincentbernat/lldpd.git"
