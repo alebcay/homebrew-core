@@ -3,7 +3,7 @@ class Jpeginfo < Formula
   homepage "https://www.kokkonen.net/tjko/projects.html"
   url "https://www.kokkonen.net/tjko/src/jpeginfo-1.6.1.tar.gz"
   sha256 "629e31cf1da0fa1efe4a7cc54c67123a68f5024f3d8e864a30457aeaed1d7653"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -15,11 +15,14 @@ class Jpeginfo < Formula
     sha256 "d28d3fcbf355139760d15d1869f57d180940e8114b150446214b18270275dcf8" => :yosemite
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "jpeg"
 
   def install
     ENV.deparallelize
 
+    system "autoreconf", "-fvi"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
