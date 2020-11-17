@@ -17,11 +17,6 @@ class YoutubeDl < Formula
 
   depends_on "python@3.9"
 
-  resource "youtube_dl" do
-    url "https://files.pythonhosted.org/packages/a0/71/7120a61017be8237c4584c2ac6776045d553958794c8565ea9c9b842fc88/youtube_dl-2020.11.17.tar.gz"
-    sha256 "933519ab7d2fa05bd28f8443a2115d21efd0355c051986548af9f233e300db0b"
-  end
-
   def install
     virtualenv_install_with_resources
   end
