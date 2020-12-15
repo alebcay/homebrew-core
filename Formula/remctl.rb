@@ -3,6 +3,7 @@ class Remctl < Formula
   homepage "https://www.eyrie.org/~eagle/software/remctl/"
   url "https://archives.eyrie.org/software/kerberos/remctl-3.17.tar.xz"
   sha256 "2ca2f3c7808af1f6fedc89f0e852e0abb388ed29062b3822747c789b841dbd2a"
+  license "MIT"
 
   livecheck do
     url "https://archives.eyrie.org/software/kerberos/"
