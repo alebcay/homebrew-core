@@ -3,7 +3,7 @@ class Fizz < Formula
   homepage "https://github.com/facebookincubator/fizz"
   url "https://github.com/facebookincubator/fizz/releases/download/v2020.12.28.00/fizz-v2020.12.28.00.tar.gz"
   sha256 "83133e0ed95a67b53c84d4b9611f4b439c11e012131a61be741c53021f0ca4cb"
-  license "BSD-2-Clause"
+  license "BSD-3-Clause"
   head "https://github.com/facebookincubator/fizz.git"
 
   bottle do
