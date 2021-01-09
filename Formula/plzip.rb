@@ -4,7 +4,7 @@ class Plzip < Formula
   url "https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.9.tar.gz"
   mirror "https://download-mirror.savannah.gnu.org/releases/lzip/plzip/plzip-1.9.tar.gz"
   sha256 "14d8d1db8dde76bdd9060b59d50b2943417eb4c0fbd2b84736546b78fab5f1a7"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/lzip/plzip/"
