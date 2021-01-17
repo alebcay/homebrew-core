@@ -19,7 +19,7 @@ class Pgrouting < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "boost@1.60" # move to boost 1.75 in next release
   depends_on "cgal"
   depends_on "gmp"
   depends_on "postgis"
