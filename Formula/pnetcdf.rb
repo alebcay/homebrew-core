@@ -19,11 +19,7 @@ class Pnetcdf < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--enable-shared",
-                          # Fix for GCC 10, remove in next version
-                          # https://github.com/Parallel-NetCDF/PnetCDF/pull/63
-                          "FFLAGS=-fallow-argument-mismatch",
-                          "FCFLAGS=-fallow-argument-mismatch"
+                          "--enable-shared"
 
     cd "src/utils" do
       # Avoid references to Homebrew shims
