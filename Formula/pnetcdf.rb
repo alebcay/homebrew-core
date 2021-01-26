@@ -24,6 +24,13 @@ class Pnetcdf < Formula
                           # https://github.com/Parallel-NetCDF/PnetCDF/pull/63
                           "FFLAGS=-fallow-argument-mismatch",
                           "FCFLAGS=-fallow-argument-mismatch"
+
+    cd "src/utils" do
+      # Avoid references to Homebrew shims
+      inreplace ["pnetcdf-config", "pnetcdf_version/Makefile"], "#{HOMEBREW_SHIMS_PATH}/mac/super/",
+                                                                "/usr/bin/"
+    end
+
     system "make", "install"
   end
 
