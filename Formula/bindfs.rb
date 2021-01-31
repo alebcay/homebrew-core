@@ -3,7 +3,7 @@ class Bindfs < Formula
   homepage "https://bindfs.org/"
   url "https://bindfs.org/downloads/bindfs-1.14.9.tar.gz"
   sha256 "b6d06b151380879b6729d23bf76dac97f76ee3305d24e6ee8491d856cc90d13a"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     cellar :any
