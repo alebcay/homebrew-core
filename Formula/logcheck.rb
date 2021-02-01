@@ -3,7 +3,7 @@ class Logcheck < Formula
   homepage "https://packages.debian.org/sid/logcheck"
   url "https://deb.debian.org/debian/pool/main/l/logcheck/logcheck_1.3.21.tar.xz"
   sha256 "54e855adcf364f685753435d3d4f333d35d7014a9ad9acf4765bbaf7554bba36"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://packages.debian.org/unstable/logcheck"
