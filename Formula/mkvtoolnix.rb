@@ -1,8 +1,8 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://mkvtoolnix.download/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-53.0.0.tar.xz"
-  sha256 "8dfd66278c81e6f1df0fd84aad30ce2b4cf7a2ad4336924f01f1879f9d1e4cd6"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-55.0.0.tar.xz"
+  sha256 "6061639bda18adbf5c49264d5498fd2abab420113ba680d0eb441a9aa02afba6"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -35,16 +35,20 @@ class Mkvtoolnix < Formula
   depends_on "libmatroska"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on macos: :mojave # C++17
   depends_on "pcre2"
   depends_on "pugixml"
+
+  if MacOS.version <= :mojave
+    depends_on "llvm" => :build
+    fails_with :clang do
+      cause "'filesystem' is unavailable: introduced in macOS 10.15"
+    end
+  end
 
   uses_from_macos "libxslt" => :build
   uses_from_macos "ruby" => :build
 
   def install
-    ENV.cxx11
-
     features = %w[flac libebml libmagic libmatroska libogg libvorbis]
     extra_includes = ""
     extra_libs = ""
