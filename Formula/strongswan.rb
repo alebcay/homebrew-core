@@ -3,6 +3,7 @@ class Strongswan < Formula
   homepage "https://www.strongswan.org"
   url "https://download.strongswan.org/strongswan-5.9.2.tar.bz2"
   sha256 "61c72f741edb2c1295a7b7ccce0317a104b3f9d39efd04c52cd05b01b55ab063"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://download.strongswan.org/"
