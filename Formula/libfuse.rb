@@ -11,8 +11,12 @@ class Libfuse < Formula
   depends_on :linux
 
   def install
+    args = std_meson_args + %W[
+      -Dudevrulesdir=#{etc}/udev/rules.d
+      -Duseroot=false
+    ]
     mkdir "build" do
-      system "meson", *std_meson_args, "-Dudevrulesdir=#{etc}/udev/rules.d", ".."
+      system "meson", *args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
