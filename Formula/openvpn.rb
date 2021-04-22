@@ -37,12 +37,9 @@ class Openvpn < Formula
                           "--with-crypto-library=openssl",
                           "--enable-pkcs11",
                           "--prefix=#{prefix}"
-    inreplace "sample/sample-plugins/Makefile" do |s|
-      s.gsub! HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/pkg-config",
+    inreplace "sample/sample-plugins/Makefile",
+              HOMEBREW_SHIMS_PATH/"mac/super/pkg-config",
               Formula["pkg-config"].opt_bin/"pkg-config"
-      s.gsub! HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/sed",
-              "/usr/bin/sed"
-    end
     system "make", "install"
 
     inreplace "sample/sample-config-files/openvpn-startup.sh",
