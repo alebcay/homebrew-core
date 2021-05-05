@@ -1,8 +1,8 @@
 class Nrg2iso < Formula
   desc "Extract ISO9660 data from Nero nrg files"
   homepage "http://gregory.kokanosky.free.fr/v4/linux/nrg2iso.en.html"
-  url "http://gregory.kokanosky.free.fr/v4/linux/nrg2iso-0.4.tar.gz"
-  sha256 "25049d864680ec12bbe31b20597ce8c1ba3a4fe7a7f11e25742b83e2fda94aa3"
+  url "http://gregory.kokanosky.free.fr/v4/linux/nrg2iso-0.4.1.tar.gz"
+  sha256 "3be36a416758fc1910473b49a8dadf2a2aa3d51f1976197336bc174bc1e306e5"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4b1896503c9c1944672f043adebe206ec236d51253f4c2057fcb83694477434b"
