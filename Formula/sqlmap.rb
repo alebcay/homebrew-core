@@ -13,7 +13,7 @@ class Sqlmap < Formula
       libexec/"lib/core/dicts.py",
       libexec/"lib/core/settings.py",
       libexec/"lib/request/basic.py",
-      libexec/"thirdparty/magic/magic.py"
+      libexec/"thirdparty/magic/magic.py",
     ]
     inreplace files, "/usr/local", HOMEBREW_PREFIX
 
