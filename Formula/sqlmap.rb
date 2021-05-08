@@ -8,6 +8,11 @@ class Sqlmap < Formula
 
   def install
     libexec.install Dir["*"]
+    
+    [libexec/"lib/core/dicts.py",
+     libexec/"lib/core/settings.py",
+     libexec/"lib/request/basic.py",
+     libexec/"thirdparty/magic/magic.py"].each { |f| inreplace f, "/usr/local", HOMEBREW_PREFIX }
 
     bin.install_symlink libexec/"sqlmap.py"
     bin.install_symlink bin/"sqlmap.py" => "sqlmap"
