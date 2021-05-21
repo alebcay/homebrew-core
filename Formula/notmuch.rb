@@ -30,6 +30,12 @@ class Notmuch < Formula
 
   uses_from_macos "zlib", since: :sierra
 
+  # Remove in the release after 0.32.1
+  patch do
+    url "https://git.notmuchmail.org/git?p=notmuch;a=patch;h=59c953656dbd2e65265a2c850f2375afc9d69589;hp=92454bc0935604f4a623e75dec9506c0283eee70"
+    sha256 "291066e48a26e8f78504413203685bedc77a35d0c8f94143e1daa058b444235e"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
