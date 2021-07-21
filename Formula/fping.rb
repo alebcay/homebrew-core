@@ -28,6 +28,8 @@ class Fping < Formula
   end
 
   test do
-    assert_equal "::1 is alive", shell_output("#{bin}/fping -A localhost").chomp
+    accepted_outputs = ["127.0.0.1 is alive", "::1 is alive"]
+    output = shell_output("#{bin}/fping -A localhost").chomp
+    assert_includes accepted_outputs, output
   end
 end
