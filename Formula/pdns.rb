@@ -35,6 +35,12 @@ class Pdns < Formula
 
   uses_from_macos "curl"
 
+  on_linux do
+    depends_on "gcc" # for C++17
+  end
+
+  fails_with gcc: "5"
+
   def install
     args = %W[
       --prefix=#{prefix}
