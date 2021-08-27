@@ -3,7 +3,7 @@ class Libaacs < Formula
   homepage "https://www.videolan.org/developers/libaacs.html"
   url "https://download.videolan.org/pub/videolan/libaacs/0.11.0/libaacs-0.11.0.tar.bz2"
   sha256 "6d884381fbb659e2a565eba91e72499778635975e4b3d6fd94ab364a25965387"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "dcbccde309919c3349987341fda3259e218549d5ec5c34c38c628ff6ada98bce"
@@ -23,6 +23,8 @@ class Libaacs < Formula
 
   depends_on "bison" => :build
   depends_on "libgcrypt"
+
+  uses_from_macos "flex" => :build
 
   def install
     system "./bootstrap" if build.head?
