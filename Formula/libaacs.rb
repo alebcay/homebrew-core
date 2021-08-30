@@ -26,6 +26,9 @@ class Libaacs < Formula
 
   uses_from_macos "flex" => :build
 
+  # Fix missing include.
+  patch :DATA
+
   def install
     system "./bootstrap" if build.head?
     system "./configure", "--disable-dependency-tracking",
@@ -52,3 +55,16 @@ class Libaacs < Formula
     system "./test"
   end
 end
+__END__
+diff --git a/src/devtools/read_file.h b/src/devtools/read_file.h
+index 953b2ef..d218417 100644
+--- a/src/devtools/read_file.h
++++ b/src/devtools/read_file.h
+@@ -20,6 +20,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <errno.h>
++#include <sys/types.h>
+
+ static size_t _read_file(const char *name, off_t min_size, off_t max_size, uint8_t **pdata)
+ {
