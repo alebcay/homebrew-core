@@ -8,7 +8,7 @@ class Nauty < Formula
 
   livecheck do
     url :homepage
-    regex(/Current\s+version:\s+(\d+\.?\d+r\d+)/i)
+    regex(/Current\s+?version:\s*?v?(\d+(?:\.\d+)+(?:r\d+)?)/i)
   end
 
   bottle do
