@@ -1,8 +1,8 @@
 class OrocosKdl < Formula
   desc "Orocos Kinematics and Dynamics C++ library"
   homepage "https://orocos.org/"
-  url "https://github.com/orocos/orocos_kinematics_dynamics/archive/v1.5.0.tar.gz"
-  sha256 "6d4b04c465f0974286fbb419c40e3aca145f616571f2462e2696b830288234a9"
+  url "https://github.com/orocos/orocos_kinematics_dynamics/archive/v1.5.1.tar.gz"
+  sha256 "5acb90acd82b10971717aca6c17874390762ecdaa3a8e4db04984ea1d4a2af9b"
   license "LGPL-2.1"
 
   bottle do
