@@ -3,7 +3,7 @@ class OrocosKdl < Formula
   homepage "https://orocos.org/"
   url "https://github.com/orocos/orocos_kinematics_dynamics/archive/v1.5.1.tar.gz"
   sha256 "5acb90acd82b10971717aca6c17874390762ecdaa3a8e4db04984ea1d4a2af9b"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "c576e606256440c65e04cc0fd2aed93362c357ad25a46fc0f72aac022b0eec44"
