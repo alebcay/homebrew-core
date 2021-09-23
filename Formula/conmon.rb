@@ -13,6 +13,7 @@ class Conmon < Formula
   depends_on "pkg-config" => :build
 
   depends_on "glib"
+  depends_on "libseccomp"
   depends_on :linux
   depends_on "systemd"
 
