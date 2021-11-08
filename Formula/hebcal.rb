@@ -16,6 +16,7 @@ class Hebcal < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  uses_from_macos "gperf" => :build
 
   def install
     system "autoreconf", "-fiv"
