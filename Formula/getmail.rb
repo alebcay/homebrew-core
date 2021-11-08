@@ -1,8 +1,8 @@
 class Getmail < Formula
   desc "Extensible mail retrieval system with POP3, IMAP4, SSL support"
   homepage "https://pyropus.ca/software/getmail/"
-  url "https://pyropus.ca/software/getmail/old-versions/getmail-5.15.tar.gz"
-  sha256 "d453805ffc3f8fe2586ee705733bd666777e53693125fdb149494d22bd14162a"
+  url "https://pyropus.ca/software/getmail/old-versions/getmail-5.16.tar.gz"
+  sha256 "6ae8f8eaef9abc465050c3b64e55a31afbdcd4c6edf3197b5b59bbd56ca667fa"
   license "GPL-2.0-only"
 
   livecheck do
