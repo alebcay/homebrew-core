@@ -1,8 +1,8 @@
 class PicardTools < Formula
   desc "Tools for manipulating HTS data and formats"
   homepage "https://broadinstitute.github.io/picard/"
-  url "https://github.com/broadinstitute/picard/releases/download/2.26.3/picard.jar"
-  sha256 "1fb5600fbe6d98011dd353e3d68e81353d1069785dd69508a4016628ce8e525a"
+  url "https://github.com/broadinstitute/picard/releases/download/2.26.5/picard.jar"
+  sha256 "ecf8cc7a55f249f61f73e857b279ad9f55580ed8ad944aad22db4bd092c2e927"
   license "MIT"
 
   livecheck do
@@ -30,7 +30,7 @@ class PicardTools < Formula
       AGCTTTTCATTCTGACTGCAACGGGCAATATGTCT
       CTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC
     EOS
-    cmd = "#{bin}/picard NormalizeFasta I=test.fasta O=/dev/stdout"
+    cmd = "#{bin}/picard NormalizeFasta -I test.fasta -O /dev/stdout"
     assert_match "TCTCTG", shell_output(cmd)
   end
 end
