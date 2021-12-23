@@ -15,6 +15,8 @@ class Typedb < Formula
 
   depends_on "openjdk@11"
 
+  uses_from_macos "netcat" => :test
+
   def install
     libexec.install Dir["*"]
     bin.install libexec/"typedb"
@@ -22,6 +24,15 @@ class Typedb < Formula
   end
 
   test do
-    assert_match "A STRONGLY-TYPED DATABASE", shell_output("#{bin}/typedb server status")
+    port = free_port
+    mkdir "data"
+    mkdir "logs"
+    fork do
+      exec bin/"typedb", "server", "--server.address=localhost:#{port}",
+           "--storage.data=#{testpath}/data", "--log.output.file.directory=#{testpath}/logs"
+    end
+    sleep 10
+
+    system "nc", "-z", "localhost", port
   end
 end
