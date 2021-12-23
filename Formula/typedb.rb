@@ -1,8 +1,8 @@
 class Typedb < Formula
   desc "Distributed hyper-relational database for knowledge engineering"
   homepage "https://vaticle.com/"
-  url "https://github.com/vaticle/typedb/releases/download/2.5.0/typedb-all-mac-2.5.0.zip"
-  sha256 "881e5a50ed0a961d1c091da1d669285135738431b5e6bd72da6dfad9765d3eea"
+  url "https://github.com/vaticle/typedb/releases/download/2.6.0/typedb-all-mac-2.6.0.zip"
+  sha256 "770ec5c4f543873c8db92fa923902e30d24cd1d991f6ba44eead889361d549a7"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -13,7 +13,10 @@ class Typedb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "899d7b2dbbfba0279aed9df963356dae18c0624490a1232062e603fc3efbe435"
   end
 
+  depends_on arch: :x86_64
   depends_on "openjdk@11"
+
+  uses_from_macos "netcat" => :test
 
   def install
     libexec.install Dir["*"]
@@ -22,6 +25,15 @@ class Typedb < Formula
   end
 
   test do
-    assert_match "A STRONGLY-TYPED DATABASE", shell_output("#{bin}/typedb server status")
+    port = free_port
+    mkdir "data"
+    mkdir "logs"
+    fork do
+      exec bin/"typedb", "server", "--server.address=localhost:#{port}",
+           "--storage.data=#{testpath}/data", "--log.output.file.directory=#{testpath}/logs"
+    end
+    sleep 10
+
+    system "nc", "-z", "localhost", port
   end
 end
