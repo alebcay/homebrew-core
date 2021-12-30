@@ -1,8 +1,8 @@
 class E2fsprogs < Formula
   desc "Utilities for the ext2, ext3, and ext4 file systems"
   homepage "https://e2fsprogs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.46.4/e2fsprogs-1.46.4.tar.gz"
-  sha256 "7524520b291e901431ce59ea085955b601126de371bf3cfc0f5e4fad78684265"
+  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.46.5/e2fsprogs-1.46.5.tar.gz"
+  sha256 "b7430d1e6b7b5817ce8e36d7c8c7c3249b3051d0808a96ffd6e5c398e4e2fbb9"
   license all_of: [
     "GPL-2.0-or-later",
     "LGPL-2.0-or-later", # lib/ex2fs
@@ -34,6 +34,9 @@ class E2fsprogs < Formula
     # Fix "unknown type name 'loff_t'" issue
     inreplace "lib/ext2fs/imager.c", "loff_t", "off_t"
     inreplace "misc/e2fuzz.c", "loff_t", "off_t"
+
+    # Fix -flat_namespace usage on macOS
+    inreplace "lib/Makefile.darwin-lib", "-flat_namespace -undefined warning", ""
 
     # Enforce MKDIR_P to work around a configure bug
     # see https://github.com/Homebrew/homebrew-core/pull/35339
