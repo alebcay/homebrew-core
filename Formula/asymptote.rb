@@ -29,13 +29,17 @@ class Asymptote < Formula
 
   uses_from_macos "ncurses"
 
+  on_linux do
+    depends_on "freeglut"
+  end
+
   resource "manual" do
     url "https://downloads.sourceforge.net/project/asymptote/2.73/asymptote.pdf"
     sha256 "306f3c4fbb71e0cd2b1830b6e55e9de32b9d47595679feca453c96bbb4e79803"
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
 
     # Avoid use of MacTeX with these commands
     # (instead of `make all && make install`)
