@@ -21,9 +21,32 @@ class Groovy < Formula
 
   depends_on "openjdk"
 
+  on_macos do
+    depends_on "autoconf" => :build if Hardware::CPU.arm?
+    depends_on "automake" => :build if Hardware::CPU.arm?
+    depends_on "libtool" => :build if Hardware::CPU.arm?
+    depends_on "maven" => :build if Hardware::CPU.arm?
+  end
+
   conflicts_with "groovysdk", because: "both install the same binaries"
 
+  resource "jansi-native" do
+    url "https://github.com/fusesource/jansi-native/archive/refs/tags/jansi-native-1.8.tar.gz"
+    sha256 "053808f58495a5657c7e7f388008b02065fbbb3f231454bfcfa159adc2e2fcea"
+  end
+
   def install
+    if Hardware::CPU.arm?
+      resource("jansi-native").stage do
+        %w[source target].each { |tag| inreplace "pom.xml", "<#{tag}>1.5</#{tag}>", "<#{tag}>1.7</#{tag}>" }
+        system Formula["maven"].opt_bin/"mvn", "-Dplatform=osx", "prepare-package"
+        system Formula["openjdk"].opt_bin/"jar", "-uvf",
+              buildpath/"lib/jline-2.14.6.jar",
+              "-C", "target/generated-sources/hawtjni/lib",
+              "META-INF/native/osx/libjansi.jnilib"
+      end
+    end
+
     # Don't need Windows files.
     rm_f Dir["bin/*.bat"]
 
@@ -41,5 +64,7 @@ class Groovy < Formula
 
   test do
     system "#{bin}/grape", "install", "org.activiti", "activiti-engine", "5.16.4"
+    output = pipe_output("#{bin}/groovysh --color=enable", "println \"Hello world!\"")
+    assert_match "Hello world!\n===> null\n", output
   end
 end
