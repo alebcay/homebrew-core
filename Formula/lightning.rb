@@ -4,7 +4,7 @@ class Lightning < Formula
   url "https://ftp.gnu.org/gnu/lightning/lightning-2.1.3.tar.gz"
   mirror "https://ftpmirror.gnu.org/lightning/lightning-2.1.3.tar.gz"
   sha256 "ed856b866dc6f68678dc1151579118fab1c65fad687cf847fc2d94ca045efdc9"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any,                 big_sur:      "c8ad303b50ada5ebc3ba4b054f935a08b4aa7b70b2508ea94fe90733f07771b4"
@@ -14,12 +14,26 @@ class Lightning < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "1a4d453d7d6f24a2686f952da28a08a9a328d03a7f4fd48b26fdbe7df8aac4a5"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "binutils" => :build
+  depends_on "libtool" => :build
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
 
   def install
+    inreplace "configure.ac" do |s|
+      s.gsub! "    *arm*)		cpu=arm		;;", "    arm64|aarch64)		cpu=aarch64	;;\n    *arm*)		cpu=arm		;;\n"
+      s.gsub! "    aarch64)		cpu=aarch64	;;\n    s390*)		cpu=s390	;;\n", "    s390*)		cpu=s390	;;\n"
+    end
+
+    system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules", "--prefix=#{prefix}"
-    system "make", "check", "-j1"
     system "make", "install"
   end
 
