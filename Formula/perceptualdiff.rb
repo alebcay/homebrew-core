@@ -38,7 +38,7 @@ class Perceptualdiff < Formula
 
     # Comparing an image against itself should give no diff
     identical = shell_output("#{bin}/perceptualdiff #{test_tiff} #{test_tiff} 2>&1")
-    assert_equal "", identical
+    assert_empty identical
 
     different = shell_output("#{bin}/perceptualdiff #{test_png} #{test_tiff} 2>&1", 1)
     assert_equal "FAIL: Image dimensions do not match", different.strip
