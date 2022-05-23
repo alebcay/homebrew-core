@@ -36,10 +36,10 @@ class Comby < Formula
     ENV["OPAMYES"] = "1"
 
     system "opam", "init", "--no-setup", "--disable-sandboxing"
-    system "opam", "config", "exec", "--", "opam", "install", ".", "--deps-only", "-y"
+    system "opam", "exec", "--", "opam", "install", ".", "--deps-only", "-y", "--no-depexts"
 
     ENV.prepend_path "LIBRARY_PATH", opamroot/"default/lib/hack_parallel" # for -lhp
-    system "opam", "config", "exec", "--", "make", "release"
+    system "opam", "exec", "--", "make", "release"
 
     bin.install "_build/default/src/main.exe" => "comby"
   end
