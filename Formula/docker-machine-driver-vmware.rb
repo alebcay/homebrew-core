@@ -20,7 +20,7 @@ class DockerMachineDriverVmware < Formula
   depends_on "docker-machine"
 
   def install
-    system "go", "build", *std_go_args(output: bin/"docker-machine-driver-vmware", ldflags: "-X main.version=#{version}")
+    system "go", "build", *std_go_args(ldflags: "-X main.version=#{version}")
   end
 
   test do
