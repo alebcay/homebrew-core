@@ -15,7 +15,7 @@ class Liblouis < Formula
   end
 
   head do
-    url "https://github.com/liblouis/liblouis.git"
+    url "https://github.com/liblouis/liblouis.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
