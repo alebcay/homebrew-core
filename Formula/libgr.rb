@@ -18,7 +18,7 @@ class Libgr < Formula
   depends_on "glfw"
   depends_on "libtiff"
   depends_on "qhull"
-  depends_on "qt@5"
+  depends_on "qt"
   depends_on "zeromq"
 
   def install
