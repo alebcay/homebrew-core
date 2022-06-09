@@ -20,7 +20,7 @@ class Roapi < Formula
     # skip default features like snmalloc which errs on ubuntu 16.04
     system "cargo", "install", "--no-default-features",
                                "--features", "rustls",
-                               *std_cargo_args(path: "roapi-http")
+                               *std_cargo_args(path: "roapi")
   end
 
   test do
