@@ -25,7 +25,7 @@ class Roapi < Formula
 
   test do
     # test that versioning works
-    assert_equal "roapi-http #{version}", shell_output("#{bin}/roapi-http -V").strip
+    assert_equal "roapi #{version}", shell_output("#{bin}/roapi -V").strip
 
     # test CSV reading + JSON response
     port = free_port
@@ -34,7 +34,7 @@ class Roapi < Formula
 
     begin
       pid = fork do
-        exec bin/"roapi-http", "-a", "localhost:#{port}", "-t", "#{testpath}/data.csv"
+        exec bin/"roapi", "-a", "localhost:#{port}", "-t", "#{testpath}/data.csv"
       end
       query = "SELECT name from data"
       header = "ACCEPT: application/json"
