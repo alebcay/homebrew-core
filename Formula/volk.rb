@@ -6,7 +6,7 @@ class Volk < Formula
   url "https://github.com/gnuradio/volk/releases/download/v2.5.1/volk-2.5.1.tar.gz"
   sha256 "8f7f2f8918c6ba63ebe8375fe87add347046b8b3acbba2fb582577bebd8852df"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_monterey: "cd08be9bd078c3132652c270cfd6af087adc72855e36f2919e049d39fc22ba3a"
@@ -21,7 +21,7 @@ class Volk < Formula
   depends_on "pkg-config" => :build
   depends_on "cpu_features" if Hardware::CPU.intel?
   depends_on "orc"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   on_linux do
     depends_on "gcc"
@@ -30,8 +30,13 @@ class Volk < Formula
   fails_with gcc: "5" # https://github.com/gnuradio/volk/issues/375
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/af/b6/42cd322ae555aa770d49e31b8c5c28a243ba1bbb57ad927e1a5f5b064811/Mako-1.1.6.tar.gz"
-    sha256 "4e9e345a41924a954251b95b4b28e14a301145b544901332e658907a7464b6b2"
+    url "https://files.pythonhosted.org/packages/50/ec/1d687348f0954bda388bfd1330c158ba8d7dea4044fc160e74e080babdb9/Mako-1.2.0.tar.gz"
+    sha256 "9a7c7e922b87db3686210cf49d5d767033a41d4010b284e747682c92bddd8b39"
+  end
+
+  resource "MarkupSafe" do
+    url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
+    sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
   end
 
   def install
@@ -39,7 +44,7 @@ class Volk < Formula
     venv_root = libexec/"venv"
     ENV.prepend_create_path "PYTHONPATH", venv_root/Language::Python.site_packages("python3")
     venv = virtualenv_create(venv_root, "python3")
-    venv.pip_install resource("Mako")
+    venv.pip_install resources
 
     # Avoid references to the Homebrew shims directory
     inreplace "lib/CMakeLists.txt" do |s|
