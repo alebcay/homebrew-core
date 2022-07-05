@@ -7,7 +7,7 @@ class Uthash < Formula
   head "https://github.com/troydhanson/uthash.git", branch: "master"
 
   def install
-    include.install Dir["src/*.h"]
+    include.install buildpath.glob("src/*.h")
   end
 
   test do
