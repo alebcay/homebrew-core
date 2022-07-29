@@ -48,13 +48,24 @@ class Octant < Formula
            "-tags", tags, "-v", "./cmd/octant"
   end
 
+  service do
+    run [opt_bin/"octant", "--disable-open-browser"]
+    keep_alive true
+    working_dir var
+    log_path var/"log/octant.log"
+    error_log_path var/"log/octant.log"
+  end
+
   test do
+    port = free_port
+
     fork do
-      exec bin/"octant", "--kubeconfig", testpath/"config", "--disable-open-browser"
+      exec bin/"octant", "--kubeconfig", testpath/"config",
+           "--disable-open-browser", "--listener-addr=localhost:#{port}"
     end
     sleep 5
 
-    output = shell_output("curl -s http://localhost:7777")
+    output = shell_output("curl -s http://localhost:#{port}")
     assert_match "<title>Octant</title>", output, "Octant did not start"
     assert_match version.to_s, shell_output("#{bin}/octant version")
   end
