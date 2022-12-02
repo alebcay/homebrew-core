@@ -1,8 +1,8 @@
 class Jdupes < Formula
   desc "Duplicate file finder and an enhanced fork of 'fdupes'"
   homepage "https://github.com/jbruchon/jdupes"
-  url "https://github.com/jbruchon/jdupes/archive/v1.21.0.tar.gz"
-  sha256 "13e56c608354f10f9314c99cf37b034dde14e6bf4a9303c77391323e2ef4f549"
+  url "https://github.com/jbruchon/jdupes/archive/v1.21.1.tar.gz"
+  sha256 "22de88d1963f70c8ed4d0aa40abe05b48aaa4cc08eed6a2c6c9747010f9f4eb7"
   license "MIT"
 
   livecheck do
@@ -19,12 +19,6 @@ class Jdupes < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "5784038ce9ccd2fdd6663529fe60b0724c83e7f9e8e9f8d7f58f9f3bdec9d2bb"
     sha256 cellar: :any_skip_relocation, catalina:       "333bb2646c70e0960f8e857087c0bceb3bcf4a29a869e6e79b6622416e194bcd"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "441cd0c6aa8cc17c0b040af1af3e198de4c2f35d6aa933f28f01ad56d914bc16"
-  end
-
-  # Fix build failure. Remove in next release.
-  patch do
-    url "https://github.com/jbruchon/jdupes/commit/8f5b06109b44a9e4316f9445da3044590a6c63e2.patch?full_index=1"
-    sha256 "0dd00247bdee3252750c629e3a9c00cb63e8d5cfe383b9a9989ac6748d264880"
   end
 
   def install
