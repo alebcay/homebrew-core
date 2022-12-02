@@ -29,6 +29,6 @@ class Ruff < Formula
       import os
     EOS
 
-    assert_match "`os` imported but unused", shell_output("#{bin}/ruff --exit-zero --quiet #{testpath}/test.py")
+    assert_match "`os` imported but unused", shell_output("#{bin}/ruff --quiet #{testpath}/test.py", 1)
   end
 end
