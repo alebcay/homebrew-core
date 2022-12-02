@@ -28,9 +28,7 @@ class Ruff < Formula
     (testpath/"test.py").write <<~EOS
       import os
     EOS
-    expected = <<~EOS
-      test.py:1:8: F401 `os` imported but unused
-    EOS
-    assert_equal expected, shell_output("#{bin}/ruff --exit-zero --quiet #{testpath}/test.py")
+
+    assert_match "`os` imported but unused", shell_output("#{bin}/ruff --exit-zero --quiet #{testpath}/test.py")
   end
 end
