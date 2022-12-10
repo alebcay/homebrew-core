@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/23/e2/091862cbd961d8b2b10e6b163d465d9c187c68e0f69618f5bdcbe9179dbc/locust-2.13.1.tar.gz"
-  sha256 "875bb048b9845ba2592a65a9583a22a56d7910101cbd831fc4214548c8b54b18"
+  url "https://files.pythonhosted.org/packages/71/57/5f4fe02ce9af68afecf734ac64086a0e191f386831b9ae765a71c088e477/locust-2.13.2.tar.gz"
+  sha256 "fbacb26dbc7fdb39f94e5f0e618a0ae6d9e0412446411ba5a30067cdf078fe05"
   license "MIT"
 
   bottle do
@@ -27,8 +27,8 @@ class Locust < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/cb/a4/7de7cd59e429bd0ee6521ba58a75adaec136d32f91a761b28a11d8088d44/certifi-2022.9.24.tar.gz"
-    sha256 "0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"
+    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
+    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
   end
 
   resource "charset-normalizer" do
