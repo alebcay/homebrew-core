@@ -1,8 +1,8 @@
 class Promtail < Formula
   desc "Log agent for Loki"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/v2.7.0.tar.gz"
-  sha256 "fcdf692b117bd412e4b5a61811d92f18b3a02db6e3802e6abec0c4f584d31861"
+  url "https://github.com/grafana/loki/archive/v2.7.1.tar.gz"
+  sha256 "363f7ba0782e3eb1cfa89b1240311b182ce3e1c0c53497f18e876e71749f0e89"
   license "AGPL-3.0-only"
   head "https://github.com/grafana/loki.git", branch: "main"
 
@@ -21,9 +21,7 @@ class Promtail < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b37b2c66c0b27e0739a745f70445ed15b74216fcf11be60b7147f01da9fb2800"
   end
 
-  # Required latest https://pkg.go.dev/go4.org/unsafe/assume-no-moving-gc
-  # Try to switch to the latest go on the next release
-  depends_on "go@1.18" => :build
+  depends_on "go" => :build
 
   on_linux do
     depends_on "systemd"
