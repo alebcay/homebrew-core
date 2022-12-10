@@ -3,8 +3,8 @@ class Trzsz < Formula
 
   desc "Simple file transfer tools, similar to lrzsz (rz/sz), and compatible with tmux"
   homepage "https://trzsz.github.io"
-  url "https://files.pythonhosted.org/packages/1a/73/dfeb828f96ce7a395fe38ce72f29b0e7fe3c43348f946ca7d3806a79e1a0/trzsz-1.1.0.tar.gz"
-  sha256 "4e0d1b8afb8912d351e0de997f8f1e557298b547a6daac03c6a60282962ada72"
+  url "https://files.pythonhosted.org/packages/60/fb/fcaeef46e58afa2cf2fef5ce1ad9f4e083feb157b4e12b3687114d2a5ed7/trzsz-1.1.1.tar.gz"
+  sha256 "f113783ca8533252813d355e9a200e78762cafd4197a841f6b5289112ebf5805"
   license "MIT"
 
   bottle do
@@ -28,18 +28,18 @@ class Trzsz < Formula
   end
 
   resource "trzsz-iterm2" do
-    url "https://files.pythonhosted.org/packages/9a/26/6f8505a1908efde7b771ba365beaf7c627fcb96e27691d380d9dc0272b72/trzsz-iterm2-1.1.0.tar.gz"
-    sha256 "89f37b641528893ce529adf02e754f6d083379d4c9016590669f329b754f0966"
+    url "https://files.pythonhosted.org/packages/77/5f/6b9f043c19458246886810a6af4d1f977328b2d158fa1e3825666c298498/trzsz-iterm2-1.1.1.tar.gz"
+    sha256 "6bbcc011ed1936ee1ed01b33ac8f290ed90fdff2d9e0e8a6070cd61fc8e2b9bd"
   end
 
   resource "trzsz-libs" do
-    url "https://files.pythonhosted.org/packages/3f/75/c52618d862018af7ca1923be2b63d2cf7845f69da38970088fd64bb071e5/trzsz-libs-1.1.0.tar.gz"
-    sha256 "f116a18d6429be74ff6a321e9a6b0b59afecc5d62bf27c9f17bd63a39b31633c"
+    url "https://files.pythonhosted.org/packages/01/4b/9f4ca38ba1cef8a4d44ac7115cea8eaf1e47dc88ddb10a72646682b8cc09/trzsz-libs-1.1.1.tar.gz"
+    sha256 "8536733f42eb30bdede15ff49995d241447c8f64cda85d3a1a382b9267b79113"
   end
 
   resource "trzsz-svr" do
-    url "https://files.pythonhosted.org/packages/eb/82/39f3144bd3584f7ecc5f23fa5f929d5cba8135ec690bfcbceae02490448f/trzsz-svr-1.1.0.tar.gz"
-    sha256 "057ba12437f72e92b95087d6699ba9849d6f1a41286d9e9c7539a603d22a22fc"
+    url "https://files.pythonhosted.org/packages/bb/60/48cf879ebdc262769ccfd50c7954a533628c83faeae095be7dcc20f18769/trzsz-svr-1.1.1.tar.gz"
+    sha256 "e02e8240b0b9de7c8c72557597954158a5591660a291b6f70a0f54e1dedcd273"
   end
 
   resource "websockets" do
