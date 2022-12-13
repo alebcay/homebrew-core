@@ -1,8 +1,8 @@
 class Libhdhomerun < Formula
   desc "C library for controlling SiliconDust HDHomeRun TV tuners"
   homepage "https://www.silicondust.com/support/linux/"
-  url "https://download.silicondust.com/hdhomerun/libhdhomerun_20220303.tgz"
-  sha256 "1e54ffefc2d4893911501da31e662b9d063e6c18afe2cb5c6653325277a54a97"
+  url "https://download.silicondust.com/hdhomerun/libhdhomerun_20221205.tgz"
+  sha256 "29eb09ca528abf45d3feed512a847b98cdfff89609f133855a8dc6cecb8b62f9"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -23,9 +23,17 @@ class Libhdhomerun < Formula
   end
 
   def install
-    system "make"
-    bin.install "hdhomerun_config"
-    lib.install shared_library("libhdhomerun")
+    suffix = if OS.mac?
+      Hardware::CPU.arm? ? "_arm64" : "_x64"
+    else
+      ""
+    end
+
+    targets = ["hdhomerun_config#{suffix}", shared_library("libhdhomerun#{suffix}")]
+
+    system "make", *targets
+    bin.install "hdhomerun_config#{suffix}" => "hdhomerun_config"
+    lib.install shared_library("libhdhomerun#{suffix}") => shared_library("libhdhomerun")
     include.install Dir["hdhomerun*.h"]
   end
 
