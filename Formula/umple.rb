@@ -1,9 +1,9 @@
 class Umple < Formula
   desc "Modeling tool/programming language that enables Model-Oriented Programming"
   homepage "https://www.umple.org"
-  url "https://github.com/umple/umple/releases/download/v1.32.0/umple-1.32.0.6441.414d09714.jar"
-  version "1.32.0"
-  sha256 "cd5a85b1192122ae88ea89f20487c48547088501ac3c93ea406a0aef25ac1a02"
+  url "https://github.com/umple/umple/releases/download/v1.32.1/umple-1.32.1.6535.66c005ced.jar"
+  version "1.32.1"
+  sha256 "fb2555ffef27ff6073365dc37f8672a6d254a258323441bda6015d4789e78f45"
   license "MIT"
   version_scheme 1
 
