@@ -33,8 +33,8 @@ class Po4a < Formula
   end
 
   resource "Module::Build" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
-    sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4232.tar.gz"
+    sha256 "67c82ee245d94ba06decfa25572ab75fdcd26a9009094289d8f45bc54041771b"
   end
 
   resource "Pod::Parser" do
@@ -73,13 +73,13 @@ class Po4a < Formula
   end
 
   resource "XS::Parse::Keyword::Builder" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/XS-Parse-Keyword-0.25.tar.gz"
-    sha256 "f5edb30cf7c7f220d0c6c31dc1eb554032840a99c7c298314f5cc3fef66c72c7"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/XS-Parse-Keyword-0.31.tar.gz"
+    sha256 "e496168a4fcbcc61065ee64e0e2a657631b5750fd3c22d6361acf4d0a19b7f3d"
   end
 
   resource "Syntax::Keyword::Try" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Syntax-Keyword-Try-0.27.tar.gz"
-    sha256 "246e1b033e3ff22fd5420550d4b6e0d56b438cdcbb9d35cbe8b1b5ba1574de23"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Syntax-Keyword-Try-0.28.tar.gz"
+    sha256 "ccad5f9d82a0b016252ed52da0270c80d54dc4289e09e3543d47a50b78fa02c8"
   end
 
   def install
