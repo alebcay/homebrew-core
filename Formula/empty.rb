@@ -1,8 +1,8 @@
 class Empty < Formula
   desc "Lightweight Expect-like PTY tool for shell scripts"
   homepage "https://empty.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/empty/empty/empty-0.6.23b/empty-0.6.23b.tgz"
-  sha256 "4c4f59c79871e3cc6cb14e80c1fa51b5102997ce67d6e7ba20dcd2d87bd67dea"
+  url "https://downloads.sourceforge.net/project/empty/empty/empty-0.6.23c/empty-0.6.23c.tgz"
+  sha256 "8a7ca8c7099dc6d6743ac7eafc0be3b1f8991d2c8f20cf66ce900c7f08e010bd"
   license "BSD-3-Clause"
 
   livecheck do
