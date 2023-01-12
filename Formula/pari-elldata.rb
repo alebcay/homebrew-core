@@ -32,7 +32,7 @@ class PariElldata < Formula
   depends_on "pari"
 
   def install
-    (share/"pari/elldata").install gzip(*Dir["#{buildpath}/elldata/ell*"])
+    (share/"pari/elldata").install Utils::Gzip.compress(*Dir["#{buildpath}/elldata/ell*"])
     doc.install "elldata/README"
   end
 
