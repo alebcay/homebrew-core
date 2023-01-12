@@ -25,7 +25,7 @@ class PariGalpol < Formula
 
   def install
     Dir.glob("galpol/*/**/*").each do |path|
-      gzip(path) unless File.directory?(path)
+      Utils::Gzip.compress(path) unless File.directory?(path)
     end
 
     (share/"pari/galpol").install Dir["galpol/*/"]
