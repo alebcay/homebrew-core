@@ -24,7 +24,7 @@ class PariGaldata < Formula
   depends_on "pari"
 
   def install
-    (share/"pari/galdata").install gzip(*Dir["#{buildpath}/galdata/*"])
+    (share/"pari/galdata").install Utils::Gzip.compress(*Dir["#{buildpath}/galdata/*"])
   end
 
   test do
