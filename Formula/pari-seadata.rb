@@ -32,7 +32,7 @@ class PariSeadata < Formula
   depends_on "pari"
 
   def install
-    (share/"pari/seadata").install gzip(*Dir["#{buildpath}/seadata/sea*"])
+    (share/"pari/seadata").install Utils::Gzip.compress(*Dir["#{buildpath}/seadata/sea*"])
     doc.install "seadata/README"
   end
 
