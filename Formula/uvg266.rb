@@ -8,7 +8,7 @@ class Uvg266 < Formula
 
   depends_on "cmake" => :build
 
-  resource "videosample" do
+  resource "homebrew-videosample" do
     url "https://samples.mplayerhq.hu/V-codecs/lm20.avi"
     sha256 "a0ab512c66d276fd3932aacdd6073f9734c7e246c8747c48bf5d9dd34ac8b392"
   end
@@ -23,7 +23,7 @@ class Uvg266 < Formula
 
   test do
     # download small sample and try to encode it
-    resource("videosample").stage do
+    resource("homebrew-videosample").stage do
       system bin/"uvg266", "-i", "lm20.avi", "--input-res", "16x16", "-o", "lm20.vvc"
       assert_predicate Pathname.pwd/"lm20.vvc", :exist?
     end
