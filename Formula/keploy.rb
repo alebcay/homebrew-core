@@ -1,3 +1,5 @@
+require "language/node"
+
 class Keploy < Formula
   desc "Testing Toolkit creates test-cases and data mocks from API calls, DB queries"
   homepage "https://keploy.io"
