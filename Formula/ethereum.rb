@@ -24,6 +24,8 @@ class Ethereum < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "erigon", because: "both install `evm` binaries"
+
   def install
     # See https://github.com/golang/go/issues/26487
     ENV.O0 if OS.linux?
