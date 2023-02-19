@@ -25,6 +25,8 @@ class Erigon < Formula
   depends_on "go" => :build
   depends_on "make" => :build
 
+  conflicts_with "ethereum", because: "both install `evm` binaries"
+
   def install
     unless build.head?
       ENV["GIT_COMMIT"] = "unknown"
