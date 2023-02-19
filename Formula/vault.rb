@@ -35,8 +35,8 @@ class Vault < Formula
   def install
     # Needs both `npm` and `python` in PATH
     ENV.prepend_path "PATH", Formula["node@18"].opt_libexec/"bin"
-    ENV.prepend_path "PATH", Formula["python@3.10"].opt_libexec/"bin" if OS.mac?
     ENV.prepend_path "PATH", "#{ENV["GOPATH"]}/bin"
+    ENV["PYTHON"] = "python3.10"
     system "make", "bootstrap", "static-dist", "dev-ui"
     bin.install "bin/vault"
   end
