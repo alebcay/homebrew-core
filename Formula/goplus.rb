@@ -4,7 +4,7 @@ class Goplus < Formula
   url "https://github.com/goplus/gop/archive/v1.1.3.tar.gz"
   sha256 "11e676f1ff4a391248747bad9d4c1673d366fcf306bd3e185fee5870afd02fee"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/goplus/gop.git", branch: "main"
 
   bottle do
@@ -26,7 +26,9 @@ class Goplus < Formula
     system "go", "run", "cmd/make.go", "--install"
 
     libexec.install Dir["*"] - Dir[".*"]
-    bin.install_symlink (libexec/"bin").children
+    libexec.glob("bin/*").each do |file|
+      (bin/file.basename).write_env_script file, PATH: "#{Formula["go@1.19"].opt_bin}:$PATH"
+    end
   end
 
   test do
@@ -47,7 +49,7 @@ class Goplus < Formula
       module hello
     EOS
 
-    system "go", "get", "github.com/goplus/gop/builtin"
+    system Formula["go@1.19"].opt_bin/"go", "get", "github.com/goplus/gop/builtin"
     system bin/"gop", "build", "-o", "hello"
     assert_equal "Hello World\n", shell_output("./hello")
   end
