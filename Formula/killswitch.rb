@@ -21,8 +21,8 @@ class Killswitch < Formula
   depends_on :macos
 
   def install
-    system "go", "build", "-mod=readonly", "-ldflags", "-s -w -X main.version=#{version}",
-           "-o", "#{bin}/killswitch", "cmd/killswitch/main.go"
+    system "go", "build", "-mod=readonly", *std_go_args(ldflags: "-s -w -X main.version=#{version}"),
+           "cmd/killswitch/main.go"
   end
 
   test do
