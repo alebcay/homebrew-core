@@ -19,8 +19,8 @@ class Lazygit < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-mod=vendor", "-o", bin/"lazygit",
-      "-ldflags", "-X main.version=#{version} -X main.buildSource=homebrew"
+    ldflags = "-X main.version=#{version} -X main.buildSource=homebrew"
+    system "go", "build", "-mod=vendor", *std_go_args(ldflags: ldflags)
   end
 
   # lazygit is a terminal GUI, but it can be run in 'client mode' for example to write to git's todo file
