@@ -23,15 +23,16 @@ class Stolon < Formula
   depends_on "libpq"
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}",
-                          "-trimpath", "-o", bin/"stolonctl", "./cmd/stolonctl"
-    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}",
-                          "-trimpath", "-o", bin/"stolon-keeper", "./cmd/keeper"
-    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}",
-                          "-trimpath", "-o", bin/"stolon-sentinel", "./cmd/sentinel"
-    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}",
-                          "-trimpath", "-o", bin/"stolon-proxy", "./cmd/proxy"
-    prefix.install_metafiles
+    ldflags = "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}"
+
+    %w[
+      stolonctl ./cmd/stolonctl
+      stolon-keeper ./cmd/keeper
+      stolon-sentinel ./cmd/sentinel
+      stolon-proxy ./cmd/proxy
+    ].each_slice(2) do |bin_name, src_path|
+      system "go", "build", *std_go_args(ldflags: ldflags, output: bin/bin_name), src_path
+    end
   end
 
   test do
