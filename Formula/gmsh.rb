@@ -31,6 +31,7 @@ class Gmsh < Formula
 
   def install
     ENV["CASROOT"] = Formula["opencascade"].opt_prefix
+    ENV.append_to_cflags "-DCC_PROTOTYPE_ANSI"
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                     "-DENABLE_OS_SPECIFIC_INSTALL=0",
