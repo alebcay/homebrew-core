@@ -48,6 +48,11 @@ class Bitchx < Formula
       # https://sourceforge.net/p/bitchx/git/ci/35b1a65f03a2ca2dde31c9dbd77968587b6027d3/
       plugins << "aim"
 
+      # Add missing <string.h> header needed for strcpy(3)
+      inreplace "dll/aim/toc/interface.c",
+                "#include <time.h>\n",
+                "#include <time.h>\n#include <string.h>\n"
+
       # Patch to fix OpenSSL detection with OpenSSL 1.1
       # A similar fix is already committed upstream:
       # https://sourceforge.net/p/bitchx/git/ci/184af728c73c379d1eee57a387b6012572794fa8/
