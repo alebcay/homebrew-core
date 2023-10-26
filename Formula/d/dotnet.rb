@@ -18,13 +18,11 @@ class Dotnet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a75b5f8d7331b1db749735e6a8fb3f9dbfe6298c44fa0e8911d727e7195b8eb"
   end
 
-  deprecate! date: "2023-10-24", because: "uses deprecated `openssl@1.1`"
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build
   depends_on "icu4c"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
 
   uses_from_macos "llvm" => :build
   uses_from_macos "krb5"
@@ -106,8 +104,19 @@ class Dotnet < Formula
 
   test do
     target_framework = "net#{version.major_minor}"
+
+    # dotnet doesn't link to OpenSSL but does seem to look for it at runtime.
+    # If it can't find it, running this example will result in an error like:
+    # System.PlatformNotSupportedException: Algorithm 'RSAOpenSsl' is not supported on this platform.
+    #
+    # This example tests that dotnet can find and use the specified OpenSSL
+    # dependency.
     (testpath/"test.cs").write <<~EOS
       using System;
+      using System.Diagnostics;
+      using System.Linq;
+      using System.Text;
+      using System.Security.Cryptography;
 
       namespace Homebrew
       {
@@ -117,6 +126,13 @@ class Dotnet < Formula
           {
             var joined = String.Join(",", args);
             Console.WriteLine(joined);
+
+            using (var rsa = new RSAOpenSsl(2048)) {
+              var plaintext = Encoding.ASCII.GetBytes(joined);
+              var ciphertext = rsa.Encrypt(plaintext, RSAEncryptionPadding.OaepSHA256);
+              var decrypted = rsa.Decrypt(ciphertext, RSAEncryptionPadding.OaepSHA256);
+              Trace.Assert(plaintext.SequenceEqual(decrypted));
+            }
           }
         }
       }
