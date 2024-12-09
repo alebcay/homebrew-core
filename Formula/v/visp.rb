@@ -150,6 +150,7 @@ class Visp < Formula
     system ENV.cxx, "test.cpp", "-o", "test", *pkg_config_flags
     assert_equal version.to_s, shell_output("./test").chomp
 
+    ENV.delete "CPATH"
     (testpath/"CMakeLists.txt").write <<~CMAKE
       cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
       project(visp-check LANGUAGES CXX)
@@ -161,7 +162,7 @@ class Visp < Formula
 
     system "cmake", "-B", "build", "-S", "."
     system "cmake", "--build", "build"
-    assert_equal version.to_s, shell_output("./visp-check").chomp
+    assert_equal version.to_s, shell_output("build/visp-check").chomp
   end
 end
 
