@@ -1,10 +1,20 @@
 class Purr < Formula
   desc "Versatile zsh CLI tool for viewing and searching through Android logcat output"
   homepage "https://github.com/google/purr"
-  url "https://github.com/google/purr/archive/refs/tags/2.0.4.tar.gz"
-  sha256 "ce8b4d31d6b56e79808f12a37795ea15127f3e01eb94f2becb1ee1cd8724844a"
   license "Apache-2.0"
   head "https://github.com/google/purr.git", branch: "main"
+
+  stable do
+    url "https://github.com/google/purr/archive/refs/tags/2.0.4.tar.gz"
+    sha256 "ce8b4d31d6b56e79808f12a37795ea15127f3e01eb94f2becb1ee1cd8724844a"
+
+    # Avoid `sed -i` usage in makefile which requires GNU sed
+    patch do
+      url "https://github.com/google/purr/commit/501be2d913be95eb5263ecd83c7d36aedf04af2b.patch?full_index=1"
+      sha256 "50947df5a599677b749fe933f4835db99eaaa846491be182a060ce740a5027b4"
+      type :backport
+    end
+  end
 
   bottle do
     rebuild 1
@@ -15,14 +25,9 @@ class Purr < Formula
 
   uses_from_macos "zsh"
 
-  on_macos do
-    depends_on "gnu-sed" => :build
-  end
+  deny_network_access!
 
   def install
-    # For `sed -i` usage used to remove comments
-    ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin" if OS.mac?
-
     system "make"
     bin.install "out/purr"
 
